@@ -51,7 +51,7 @@ export default function PageTransition2({children}) {
     }
   }
 
-  const numberOfColumns = 5;
+  const numberOfColumns = 8;
 
   return(
     <div className="page columns">

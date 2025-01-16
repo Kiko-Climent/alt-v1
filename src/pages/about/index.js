@@ -23,7 +23,7 @@ export default function About() {
                         />
             </div>
             <div className="flex flex-col w-1/2 space-y-3 text-justify">
-              <h1 className="font-semibold">About</h1>
+              <h1 className="font-bold">About</h1>
               <p>
                 A.L.T. "Against Low Trends" es una agencia boutique con un enfoque
                 auténtico y artístico dentro de la música electrónica. Nuestro
