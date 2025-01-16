@@ -1,138 +1,213 @@
+// "use client";
+
+// import { useState } from "react";
+// import { motion } from "framer-motion";
+// import Image from "next/image";
+
+// // Datos centralizados con títulos, imágenes y posiciones
+// const elements = [
+//   { name: "hermetica", image: "/images/IMG-20250115-WA0005.jpg", position: { bottom: "20%", left: "50%", transform: "translateX(-50%)" } },
+//   { name: "laia", image: "/images/IMG-20250115-WA0006.jpg", position: { bottom: "10%", right: "5%" } },
+//   { name: "tak", image: "/images/IMG-20250115-WA0008.jpg", position: { top: "5%", right: "10%" } },
+//   { name: "not a headliner", image: "/images/IMG-20250115-WA0005.jpg", position: { top: "10%", left: "5%" } },
+//   { name: "piramidal decoder", image: "/images/IMG-20250115-WA0006.jpg", position: { top: "5%", right: "10%" } },
+//   { name: "monster", image: "/images/IMG-20250115-WA0008.jpg", position: { bottom: "45%", left: "15%" } },
+//   { name: "unkle fon", image: "/images/IMG-20250115-WA0006.jpg", position: { top: "30%", right: "30%" } },
+//   { name: "atonism", image: "/images/IMG-20250115-WA0008.jpg", position: { bottom: "45%", left: "15%" } },
+// ];
+
+// const Title = ({ name, isHovered, onHoverStart, onHoverEnd }) => {
+//   const style = isHovered ? { opacity: 0.1 } : {};
+//   return (
+//     <motion.h1
+//       className="flex hover:text-[#811a17] transition-colors duration-300 hover:font-bold"
+//       style={style}
+//       onHoverStart={() => onHoverStart(name)}
+//       onHoverEnd={() => onHoverEnd(null)}
+//     >
+//       {name}
+//     </motion.h1>
+//   );
+// };
+
+// export default function Home() {
+//   const [hoveredElement, setHoveredElement] = useState(null);
+
+//   return (
+//     <div className="h-screen overflow-hidden text-lg  text-white tracking-wider flex justify-evenly items-center bg-[#000000]">
+//       {/* Column 1 */}
+//       <div className="flex flex-col uppercase gap-32 items-start h-1/2">
+//         {elements.slice(0, 3).map(({ name }) => (
+//           <Title
+//             key={name}
+//             name={name}
+//             isHovered={hoveredElement && hoveredElement !== name}
+//             onHoverStart={setHoveredElement}
+//             onHoverEnd={setHoveredElement}
+//           />
+//         ))}
+//       </div>
+
+//       {/* Column 2 */}
+//       <div className="flex flex-col uppercase gap-32 items-start h-1/2">
+//         {elements.slice(3, 5).map(({ name }) => (
+//           <Title
+//             key={name}
+//             name={name}
+//             isHovered={hoveredElement && hoveredElement !== name}
+//             onHoverStart={setHoveredElement}
+//             onHoverEnd={setHoveredElement}
+//           />
+//         ))}
+//       </div>
+
+//       {/* Column 3 */}
+//       <div className="flex flex-col uppercase gap-32 items-start h-1/2">
+//         {elements.slice(5, 8).map(({ name }) => (
+//           <Title
+//             key={name}
+//             name={name}
+//             isHovered={hoveredElement && hoveredElement !== name}
+//             onHoverStart={setHoveredElement}
+//             onHoverEnd={setHoveredElement}
+//           />
+//         ))}
+//       </div>
+
+//       {hoveredElement && (
+//         <motion.div
+//           className="absolute"
+//           style={{
+//             width: "400px",
+//             height: "200px",
+//             ...elements.find((el) => el.name === hoveredElement).position,
+//           }}
+//           initial={{ opacity: 0 }}
+//           animate={{ opacity: 1 }}
+//           exit={{ opacity: 0 }}
+//           transition={{ duration: 0.5 }}
+//         >
+//           <Image
+//             src={elements.find((el) => el.name === hoveredElement).image}
+//             alt={hoveredElement}
+//             width={500}
+//             height={300}
+//             style={{ objectFit: "cover" }}
+//           />
+//         </motion.div>
+//       )}
+//     </div>
+//   );
+// }
 "use client";
 
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+// Datos centralizados con títulos, imágenes y posiciones
+const elements = [
+  { name: "hermetica", image: "/images/IMG-20250115-WA0005.jpg", position: { bottom: "20%", left: "50%", transform: "translateX(-50%)" } },
+  { name: "laia", image: "/images/IMG-20250115-WA0006.jpg", position: { bottom: "10%", right: "5%" } },
+  { name: "tak", image: "/images/IMG-20250115-WA0008.jpg", position: { top: "5%", right: "10%" } },
+  { name: "not a headliner", image: "/images/IMG-20250115-WA0005.jpg", position: { top: "10%", left: "5%" } },
+  { name: "piramidal decoder", image: "/images/IMG-20250115-WA0006.jpg", position: { top: "5%", right: "10%" } },
+  { name: "monster", image: "/images/IMG-20250115-WA0008.jpg", position: { bottom: "45%", left: "15%" } },
+  { name: "unkle fon", image: "/images/IMG-20250115-WA0006.jpg", position: { top: "30%", right: "30%" } },
+  { name: "atonism", image: "/images/IMG-20250115-WA0008.jpg", position: { bottom: "45%", left: "15%" } },
+];
+
+const Title = ({ name, isHovered, onHoverStart, onHoverEnd }) => {
+  const style = isHovered ? { opacity: 0.1 } : {};
+  return (
+    <motion.h1
+      className="flex hover:text-[#811a17] transition-colors duration-300 hover:font-bold hover:scale-y-150"
+      style={style}
+      onHoverStart={() => onHoverStart(name)}
+      onHoverEnd={() => onHoverEnd(null)}
+    >
+      {name}
+    </motion.h1>
+  );
+};
 
 export default function Home() {
-
   const [hoveredElement, setHoveredElement] = useState(null);
 
-  const images = {
-    hermetica: "/images/IMG-20250115-WA0005.jpg",
-    laia: "/images/IMG-20250115-WA0006.jpg",
-    tak: "/images/IMG-20250115-WA0008.jpg",
-    "not a headliner": "/images/IMG-20250115-WA0005.jpg",
-    "piramidal decoder": "/images/IMG-20250115-WA0006.jpg",
-    monster: "/images/IMG-20250115-WA0008.jpg",
-    "unkle fon": "/images/IMG-20250115-WA0006.jpg",
-    atonism: "/images/IMG-20250115-WA0008.jpg",
-  }
-
-  const imagePositions = {
-    hermetica: { bottom: "20%", left: "50%", transform: "translateX(-50%)" },
-    laia: { bottom: "10%", right: "5%" },
-    tak: { top: "5%", right: "10%" },
-    "not a headliner": { top: "10%", left: "5%" },
-    "piramidal decoder": { top: "5%", right: "10%" },
-    monster: { bottom: "45%", left: "15%" },
-    "unkle fon": { top: "30%", right: "30%" },
-    atonism: { bottom: "45%", left: "15%" },
-  };
-
-  const getTitleStyle = (element) => {
-    if (hoveredElement && hoveredElement !== element) {
-      return{opacity: 0.1};
-    }
-    return{};
-  };
-
-
-
   return (
-    <div className="h-screen overflow-hidden text-lg text-white tracking-wider flex justify-evenly items-center bg-[#000000] gap-16">
-      <div className="flex flex-col uppercase font-bold gap-32 items-start h-1/2">
-        <motion.h1 className="flex hover:text-[#811a17] transition-colors duration-300"
-                    style={getTitleStyle('hermetica')}
-                    onHoverStart={() => setHoveredElement("hermetica")}
-                    onHoverEnd={() => setHoveredElement(null)}
-        >
-          hermetica
-        </motion.h1>
-        <motion.h1 className="flex hover:text-[#811a17] transition-colors duration-300"
-                    style={getTitleStyle('laia')}
-                    onHoverStart={() => setHoveredElement("laia")}
-                    onHoverEnd={() => setHoveredElement(null)}
-        >          
-          laia
-        </motion.h1>
-        <motion.h1 className="flex hover:text-[#811a17] transition-colors duration-300"
-                    style={getTitleStyle('tak')}
-                    onHoverStart={() => setHoveredElement("tak")}
-                    onHoverEnd={() => setHoveredElement(null)}
-        >
-          tak
-        </motion.h1>
+    <div className="h-screen overflow-hidden bg-[#000000] flex-col">
+      <div className="flex">
+        <Image src="/images/ALT_Alta_Logo_blanco.png"
+              width={500}
+              height={300}
+              style={{ objectFit: "cover" }}     
+        />
       </div>
-      <div className="flex flex-col uppercase font-bold gap-32 items-start h-1/2">
-        <motion.h1 className="flex hover:text-[#811a17] transition-colors duration-300"
-                  style={getTitleStyle('not a headliner')}
-                  onHoverStart={() => setHoveredElement("not a headliner")}
-                  onHoverEnd={() => setHoveredElement(null)}
-        >
-          not a headliner
-        </motion.h1>
-        <motion.h1 className="flex hover:text-[#811a17] transition-colors duration-300"
-                    style={getTitleStyle('piramidal decoder')}
-                    onHoverStart={() => setHoveredElement("piramidal decoder")}
-                    onHoverEnd={() => setHoveredElement(null)}
-        >
-          piramidal decoder
-        </motion.h1>
-
+      
+      <div className="text-lg text-white tracking-wider flex justify-evenly items-center">    
+      {/* Column 1 */}
+      <div className="flex flex-col uppercase gap-32 items-start h-1/2">
+        {elements.slice(0, 3).map(({ name }) => (
+          <Title
+            key={name}
+            name={name}
+            isHovered={hoveredElement && hoveredElement !== name}
+            onHoverStart={setHoveredElement}
+            onHoverEnd={setHoveredElement}
+          />
+        ))}
       </div>
-      <div className="flex flex-col uppercase font-bold gap-32 items-start h-1/2">
-        <motion.h1 className="flex hover:text-[#811a17] transition-colors duration-300"
-                    style={getTitleStyle('monster')}
-                    onHoverStart={() => setHoveredElement("monster")}
-                    onHoverEnd={() => setHoveredElement(null)}
-        >
-        monster
-        </motion.h1>
 
-        <motion.h1 className="flex hover:text-[#811a17] transition-colors duration-300"
-                  style={getTitleStyle('unkle fon')}
-                  onHoverStart={() => setHoveredElement("unkle fon")}
-                  onHoverEnd={() => setHoveredElement(null)}
-        >
-        unkle fon
-        </motion.h1>
-
-        <motion.h1 className="flex hover:text-[#811a17] transition-colors duration-300"
-                  style={getTitleStyle('atonism')}
-                  onHoverStart={() => setHoveredElement("atonism")}
-                  onHoverEnd={() => setHoveredElement(null)}
-        >
-        atonism
-        </motion.h1>
+      {/* Column 2 */}
+      <div className="flex flex-col uppercase gap-32 items-start h-1/2">
+        {elements.slice(3, 5).map(({ name }) => (
+          <Title
+            key={name}
+            name={name}
+            isHovered={hoveredElement && hoveredElement !== name}
+            onHoverStart={setHoveredElement}
+            onHoverEnd={setHoveredElement}
+          />
+        ))}
+        <div className="invisible">Placeholder</div>
       </div>
-      {/* Imagen que aparece debajo de los títulos */}
+
+      {/* Column 3 */}
+      <div className="flex flex-col uppercase gap-32 items-start h-1/2">
+        {elements.slice(5, 8).map(({ name }) => (
+          <Title
+            key={name}
+            name={name}
+            isHovered={hoveredElement && hoveredElement !== name}
+            onHoverStart={setHoveredElement}
+            onHoverEnd={setHoveredElement}
+          />
+        ))}
+      </div>
+
       {hoveredElement && (
         <motion.div
-        className="absolute"
-        style={{
-          width: "400px",
-          height: "200px", // Cambia el tamaño si lo necesitas
-          ...imagePositions[hoveredElement], // Posición única para cada imagen
-        }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }} // Duración de la animación
-      >
-        <Image
-          src={images[hoveredElement]}
-          alt={hoveredElement}
-          width={500}
-          height={300}
+          className="absolute"
           style={{
-            objectFit: "cover",
+            width: "400px",
+            height: "200px",
+            ...elements.find((el) => el.name === hoveredElement).position,
           }}
-        />
-      </motion.div>
-      
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Image
+            src={elements.find((el) => el.name === hoveredElement).image}
+            alt={hoveredElement}
+            width={500}
+            height={300}
+            style={{ objectFit: "cover" }}
+          />
+        </motion.div>
       )}
+      </div>
     </div>
   );
 }
