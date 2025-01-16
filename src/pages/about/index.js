@@ -1,6 +1,7 @@
 // import Head from 'next/head'
-import PageTransition from "@/components/Layout/Page_Transition";
+// import PageTransition from "@/components/Layout/Page_Transition";
 import PageTransition2 from "@/components/Layout/Page_Transition2";
+import Image from "next/image";
 
 export default function About() {
   return (
@@ -12,14 +13,53 @@ export default function About() {
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
       <PageTransition2>
-        <div className="h-screen text-black">
-        <h1>About</h1>
-        <div className='body'>
-            <p className=''> Nullam mattis mattis dictum. Praesent sit amet condimentum mi, quis venenatis lectus. Phasellus ac ante id purus viverra hendrerit quis at ex. Donec vitae augue pulvinar augue dictum fermentum dapibus nec tellus.</p>
-            <p>Phasellus cursus, ante in eleifend vehicula, leo metus mattis est, sit amet dignissim dui nibh in dui. Nullam dictum tortor vitae quam condimentum, eget tincidunt nisi tincidunt. Praesent ut erat at purus gravida aliquam non a purus. Pellentesque sagittis in justo vel venenatis.</p>
-        </div>
-        </div>
+        <section className="h-screen text-black bg-white py-4 pr-4">
+          <div className="h-full flex items-center justify-center">
+            <div className="flex self-start">
+              <Image src="/images/AgainstLT_transparente.png"
+                              width={500}
+                              height={300}
+                              style={{ objectFit: "cover" }}     
+                        />
+            </div>
+            <div className="flex flex-col w-1/2 space-y-3 text-justify">
+              <h1 className="font-semibold">About</h1>
+              <p>
+                A.L.T. "Against Low Trends" es una agencia boutique con un enfoque
+                auténtico y artístico dentro de la música electrónica. Nuestro
+                propósito es romper con las tendencias comerciales pasajeras y
+                centrarnos en lo que realmente importa: el arte, la innovación y la
+                conexión profunda con el público.
+              </p>
+              <p>
+                Creemos en la calidad sobre la cantidad. Trabajamos exclusivamente
+                con un grupo selecto y reducido de artistas que comparten nuestra
+                visión y están comprometidos con elevar su perfil artístico a nuevo
+                niveles.
+              </p>
+              <p>  
+                Nuestra misión es clara: proporcionar a nuestros artistas una
+                plataforma sólida para crecer, crear y expresarse generando
+                oportunidades en clubes y/o festivales que valoren la esencia
+                genuina de la música electrónica. Nos aliamos con espacios y
+                eventos que aprecian la autenticidad y el riesgo artístico,
+                asegurándonos de que cada presentación sea una experiencia
+                memorable.
+              </p>
+              <p>
+                A.L.T. no es solo una agencia; es un movimiento que celebra la
+                diversidad, la originalidad y la audacia.
+              </p>
+            </div>
+          </div>
+        </section>
       </PageTransition2>
+        {/* <div className="h-screen text-black bg-white">
+          <h1>About</h1>
+          <div className=''>
+              <p className=''> Nullam mattis mattis dictum. Praesent sit amet condimentum mi, quis venenatis lectus. Phasellus ac ante id purus viverra hendrerit quis at ex. Donec vitae augue pulvinar augue dictum fermentum dapibus nec tellus.</p>
+          </div>
+          </div> */}
     </>
   )
 }
