@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import PageTransition from "@/components/Layout";
+import PageTransition from "@/components/Layout/Page_Transition";
+import PageTransition2 from "@/components/Layout/Page_Transition2";
 
 
 const elements = [
@@ -35,7 +36,7 @@ export default function Home() {
   const [hoveredElement, setHoveredElement] = useState(null);
 
   return (
-    <PageTransition>
+    <PageTransition2>
       <div className="h-screen overflow-hidden bg-[#000000] flex-col">
         <div className="flex sm:hidden md:block">
           <Image src="/images/ALT_Alta_Logo_blanco.png"
@@ -126,6 +127,6 @@ export default function Home() {
         )}
         </div>
       </div>
-    </PageTransition>
+    </PageTransition2>
   );
 }

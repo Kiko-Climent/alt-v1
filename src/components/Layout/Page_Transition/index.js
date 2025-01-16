@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import Header from "../Header";
+import Header from "../../Header";
 
 
 
@@ -72,7 +72,7 @@ export default function PageTransition({children}) {
         <motion.div {...anim(perspective)} className="page">
           <motion.div {...anim(opacity)}>
             <div>
-              {/* Header has to be inside n case of using the Inne Animation */}
+              {/* Header has to be inside in case of using the Inne Animation */}
               <Header />
             </div>
             {children}

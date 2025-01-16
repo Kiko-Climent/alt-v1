@@ -1,5 +1,6 @@
 // import Head from 'next/head'
-import PageTransition from "@/components/Layout";
+import PageTransition from "@/components/Layout/Page_Transition";
+import PageTransition2 from "@/components/Layout/Page_Transition2";
 
 export default function Contact() {
   return (
@@ -10,15 +11,15 @@ export default function Contact() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
-      <PageTransition>
-        <div className="h-screen text-white">
+      <PageTransition2>
+        <div className="h-screen text-black">
           <h1>Contact</h1>
           <div className='body'>
-              <p className='text-white'> Nullam mattis mattis dictum. Praesent sit amet condimentum mi, quis venenatis lectus. Phasellus ac ante id purus viverra hendrerit quis at ex. Donec vitae augue pulvinar augue dictum fermentum dapibus nec tellus.</p>
+              <p className='text-black'> Nullam mattis mattis dictum. Praesent sit amet condimentum mi, quis venenatis lectus. Phasellus ac ante id purus viverra hendrerit quis at ex. Donec vitae augue pulvinar augue dictum fermentum dapibus nec tellus.</p>
               <p>Phasellus cursus, ante in eleifend vehicula, leo metus mattis est, sit amet dignissim dui nibh in dui. Nullam dictum tortor vitae quam condimentum, eget tincidunt nisi tincidunt. Praesent ut erat at purus gravida aliquam non a purus. Pellentesque sagittis in justo vel venenatis.</p>
           </div>
         </div>
-      </PageTransition>
+      </PageTransition2>
     </>
   )
 }
