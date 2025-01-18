@@ -9,9 +9,9 @@ export default function App({ Component, pageProps, router }) {
   return(
     <div>
       {/* Enable the Header component here in case if using animation 2 */}
-      {/* <Header /> */}
+      <Header />
       <AnimatePresence mode="wait">
-        <Header />
+        {/* <Header /> */}
         <Component key={router.route} {...pageProps} />
       </AnimatePresence>
       <Footer />

@@ -13,17 +13,17 @@ export default function About() {
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
       <PageTransition2>
-        <section className="h-screen text-black bg-white py-4 pr-4">
+        <section className="h-screen text-black bg-white">
           <div className="h-full flex items-center justify-center">
-            <div className="flex self-start">
+            <div className="flex self-start pt-16">
               <Image src="/images/AgainstLT_transparente.png"
-                              width={500}
+                              width={400}
                               height={300}
                               style={{ objectFit: "cover" }}     
                         />
             </div>
-            <div className="flex flex-col w-1/2 space-y-3 text-justify">
-              <h1 className="font-bold">About</h1>
+            <div className="flex flex-col w-5/12 space-y-2 text-justify text-xs md:text-[13px] font-bold tracking-widest">
+              <h1 className="text-sm">About</h1>
               <p>
                 A.L.T. "Against Low Trends" es una agencia boutique con un enfoque
                 auténtico y artístico dentro de la música electrónica. Nuestro

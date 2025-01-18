@@ -33,12 +33,12 @@ const Home1 = () => {
   const [hoveredElement, setHoveredElement] = useState(null);
 
   return (
-    <div className="h-screen overflow-hidden bg-[#000000] flex-col px-4">
+    <div className="h-screen flex overflow-hidden bg-[#000000] flex-col px-4 pt-16">
       {/* Logo for small screens */}
       <div className="flex sm:hidden md:block">
         <Image
           src="/images/ALT_Alta_Logo_blanco.png"
-          width={500}
+          width={250}
           height={300}
           style={{ objectFit: "cover" }}
         />
@@ -60,9 +60,9 @@ const Home1 = () => {
       </div>
 
       {/* Titles and images for larger screens */}
-      <div className="hidden md:flex text-lg text-white tracking-wider justify-evenly items-center cursor-pointer pt-16">
+      <div className="hidden font-semibold tracking-widest md:flex text-base text-white tracking-wider justify-evenly items-center cursor-pointer ">
         {/* Column 1 */}
-        <div className="flex flex-col uppercase gap-32 items-start h-1/2">
+        <div className="flex flex-col uppercase gap-24 items-start h-1/2">
           {elements.slice(0, 3).map(({ name }) => (
             <Title
               key={name}
@@ -75,7 +75,7 @@ const Home1 = () => {
         </div>
 
         {/* Column 2 */}
-        <div className="flex flex-col uppercase gap-32 items-start h-1/2">
+        <div className="flex flex-col uppercase gap-24 items-start h-1/2">
           {elements.slice(3, 5).map(({ name }) => (
             <Title
               key={name}
@@ -89,7 +89,7 @@ const Home1 = () => {
         </div>
 
         {/* Column 3 */}
-        <div className="flex flex-col uppercase gap-32 items-start h-1/2">
+        <div className="flex flex-col uppercase gap-24 items-start h-1/2">
           {elements.slice(5, 8).map(({ name }) => (
             <Title
               key={name}

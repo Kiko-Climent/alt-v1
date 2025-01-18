@@ -53,7 +53,7 @@ const Title = ({ name, isHovered, onHoverStart, onHoverEnd }) => {
   const style = isHovered ? { opacity: 0.2 } : {};
   return (
     <motion.h1
-      className="flex hover:text-[#811a17] transition-colors duration-300 hover:font-bold hover:scale-y-125 cursor-pointer"
+      className="flex  transition-colors duration-300 hover:font-bold  cursor-pointer"
       style={style}
       onHoverStart={() => onHoverStart(name)}
       onHoverEnd={() => onHoverEnd(null)}
@@ -67,7 +67,7 @@ const Home3 = () => {
   const [hoveredElement, setHoveredElement] = useState(null);
 
   return (
-    <section className="h-screen bg-black text-[#811a17] text-[8vw] uppercase pt-4 px-2 relative overflow-hidden">
+    <section className="h-screen w-screen bg-black text-[#811a17] text-[10vw] md:text-[8vw] uppercase pt-8 px-2 relative overflow-hidden">
       {/* Nombres */}
       <div className="relative z-10 home flex flex-col items-start justify-start tracking-tight leading-[0.8] blur-[1px]">
         {elements.map(({ name }) => (
