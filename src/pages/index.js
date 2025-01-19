@@ -12,9 +12,9 @@ export default function Home() {
   return (
     <PageTransition2>
       {/* <LandingText /> */}
-      <Home1 />
+      {/* <Home1 /> */}
       {/* <Home2 /> */}
-      {/* <Home3 /> */}
+      <Home3 />
       {/* <Splash /> */}
       
     </PageTransition2>

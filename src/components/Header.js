@@ -7,11 +7,11 @@ const Header = () => {
     
     <div className="flex justify-between tracking-widest px-4 py-2 bg-black/10 mix-blend-difference text-white text-xs md:text-[13px] fixed w-full z-50 overflow-hidden">
       <div className="flex font-bold">
-        <div>against low trends</div>
+        <Link href="/">against low trends</Link>
       </div>
       <div className="flex font-bold gap-1">
         <Link href="/about" className="flex">about,</Link>
-        <Link href="/" className="flex">contact,</Link>
+        <Link href="/contact" className="flex">contact,</Link>
         <div className="flex">events</div>
       </div>
     </div>

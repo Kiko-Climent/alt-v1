@@ -41,7 +41,7 @@ import Image from "next/image";
 const elements = [
   { name: "hermetica", image: "/images/IMG-20250115-WA0005.jpg", position: { top: "10%", right: "10%" } },
   { name: "laia", image: "/images/IMG-20250115-WA0006.jpg", position: { top: "20%", right: "20%" } },
-  { name: "unkle ton", image: "/images/IMG-20250115-WA0005.jpg", position: { top: "15%", right: "40%" } },
+  { name: "unkle fon", image: "/images/IMG-20250115-WA0005.jpg", position: { top: "15%", right: "40%" } },
   { name: "monster", image: "/images/IMG-20250115-WA0008.jpg", position: { top: "35%", right: "10%" } },
   { name: "piramidal decoder", image: "/images/IMG-20250115-WA0008.jpg", position: { top: "10%", right: "10%" } },
   { name: "tak", image: "/images/IMG-20250115-WA0006.jpg", position: { top: "10%", right: "35%" } },
@@ -67,9 +67,9 @@ const Home3 = () => {
   const [hoveredElement, setHoveredElement] = useState(null);
 
   return (
-    <section className="h-screen w-screen bg-black text-[#811a17] text-[10vw] md:text-[8vw] uppercase pt-8 px-2 relative overflow-hidden">
+    <section className="flex items-center h-screen w-screen bg-black text-white text-[9vh] md:text-[8.3vw] uppercase px-2 relative overflow-hidden">
       {/* Nombres */}
-      <div className="relative z-10 home flex flex-col items-start justify-start tracking-tight leading-[0.8] blur-[1px]">
+      <div className="relative z-10 home flex flex-col items-start justify-start tracking-tight leading-[0.75] blur-[0.7px]">
         {elements.map(({ name }) => (
           <Title
             key={name}
@@ -79,6 +79,13 @@ const Home3 = () => {
             onHoverEnd={setHoveredElement}
           />
         ))}
+      </div>
+      <div className="absolute flex justify-around top-24 left-64 opacity-40 hover:opacity-100">
+        <Image src="/images/ALT_Blanco.png"
+                                  width={300}
+                                  height={300}
+                                  style={{ objectFit: "cover" }}     
+                            />
       </div>
 
       {/* Imagen al hacer hover */}

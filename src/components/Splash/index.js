@@ -1,11 +1,11 @@
 const Splash = () =>  {
 
   return (
-    <div className="h-screen w-screen flex flex-row justify-between items-center bg-black py-16 pl-16">
-      <div className="h-full flex w-4/12">
+    <div className="h-screen w-screen flex flex-row justify-center items-center bg-black py-12 pl-16">
+      <div className="h-full flex w-5/12">
       <img 
-      src="/images/image00037.jpeg" 
-      className="h-full object-cover w-full"/>
+      src="/images/image00047.jpeg" 
+      className="h-full object-contain w-full"/>
       </div>
       <div className="w-1/2 flex">
         
