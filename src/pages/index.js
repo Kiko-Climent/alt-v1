@@ -11,7 +11,7 @@ import LandingText from "@/components/Texts";
 export default function Home() {
   return (
     <PageTransition2>
-      {/* <LandingText /> */}
+      <LandingText />
       {/* <Home1 /> */}
       {/* <Home2 /> */}
       <Home3 />

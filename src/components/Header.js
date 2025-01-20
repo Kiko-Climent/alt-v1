@@ -11,8 +11,8 @@ const Header = () => {
       </div>
       <div className="flex font-bold gap-1">
         <Link href="/about" className="flex">about,</Link>
-        <Link href="/contact" className="flex">contact,</Link>
-        <div className="flex">events</div>
+        <Link href="/contact" className="flex">contact</Link>
+        {/* <div className="flex">events</div> */}
       </div>
     </div>
   )

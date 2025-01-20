@@ -42,18 +42,23 @@ const elements = [
   { name: "hermetica", image: "/images/IMG-20250115-WA0005.jpg", position: { top: "10%", right: "10%" } },
   { name: "laia", image: "/images/IMG-20250115-WA0006.jpg", position: { top: "20%", right: "20%" } },
   { name: "unkle fon", image: "/images/IMG-20250115-WA0005.jpg", position: { top: "15%", right: "40%" } },
-  { name: "monster", image: "/images/IMG-20250115-WA0008.jpg", position: { top: "35%", right: "10%" } },
+  { name: "montero", image: "/images/IMG-20250115-WA0008.jpg", position: { top: "35%", right: "10%" } },
   { name: "piramidal decoder", image: "/images/IMG-20250115-WA0008.jpg", position: { top: "10%", right: "10%" } },
   { name: "tak", image: "/images/IMG-20250115-WA0006.jpg", position: { top: "10%", right: "35%" } },
   { name: "not a headliner", image: "/images/IMG-20250115-WA0005.jpg", position: { bottom: "50%", right: "10%" } },
   { name: "atonism", image: "/images/IMG-20250115-WA0008.jpg", position: { bottom: "50%", right: "15%" } },
 ];
 
-const Title = ({ name, isHovered, onHoverStart, onHoverEnd }) => {
-  const style = isHovered ? { opacity: 0.2 } : {};
+const Title = ({ name, isHovered, onHoverStart, onHoverEnd, isActive }) => {
+  const style = isHovered
+    ? { opacity: 0.2 }
+    : isActive
+    ? { color: "#811a17" }
+    : {};
+  
   return (
     <motion.h1
-      className="flex  transition-colors duration-300 hover:font-bold  cursor-pointer"
+      className="flex  transition-colors duration-300 hover:font-bold cursor-pointer"
       style={style}
       onHoverStart={() => onHoverStart(name)}
       onHoverEnd={() => onHoverEnd(null)}
@@ -75,17 +80,18 @@ const Home3 = () => {
             key={name}
             name={name}
             isHovered={hoveredElement && hoveredElement !== name}
+            isActive={hoveredElement === name}
             onHoverStart={setHoveredElement}
             onHoverEnd={setHoveredElement}
           />
         ))}
-      </div>
-      <div className="absolute flex justify-around top-24 left-64 opacity-40 hover:opacity-100">
+      {/* <div className="absolute flex opacity-40 hover:opacity-100 top-16 right-0">
         <Image src="/images/ALT_Blanco.png"
                                   width={300}
                                   height={300}
                                   style={{ objectFit: "cover" }}     
                             />
+      </div> */}
       </div>
 
       {/* Imagen al hacer hover */}
