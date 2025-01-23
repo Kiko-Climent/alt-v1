@@ -19,3 +19,5 @@ const Header = () => {
 };
 
 export default Header;
+
+// playground hover effect for links: hover:bg-white hover:text-black //

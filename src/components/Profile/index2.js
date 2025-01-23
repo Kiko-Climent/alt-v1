@@ -3,7 +3,7 @@
 const DjProfile2 = () => {
   return(
     <section 
-    className="h-screen py-8 px-4 bg-black text-[#811a17]">
+    className="h-screen py-8 px-4 bg-black text-[#ed3833]">
 
       <div className="flex flex-col md:flex-row h-full gap-x-2 gap-y-2 md:gap-y-o">
         <div className="flex-1 flex justify-start md:justify-end items-center gap-x-2">
@@ -13,9 +13,9 @@ const DjProfile2 = () => {
           {/* Contenido adicional visible solo en móviles */}
           <div className="font-bold md:hidden flex flex-col text-[2.5vh] gap-2 ">
             <div className="leading-[1.2rem]">
-              <div>@soundcloud</div>
-              <div>@bandcamp</div>
-              <div>@instagram</div>
+              <div>↗ soundcloud</div>
+              <div>↗ bandcamp</div>
+              <div>↗ instagram</div>
             </div>
             <div>@booking</div>
           </div>
@@ -23,7 +23,7 @@ const DjProfile2 = () => {
         
 
         <div className="flex-1 flex flex-col justify-start md:justify-center h-full gap-2 md:gap-4">
-          <div className="flex tracking-wider w-full md:w-[75%] text-sm md:text-[20px] leading-[1rem] md:leading-[1.2rem]">
+          <div className="flex tracking-wider w-full md:w-[75%] text-xs md:text-[1.5vw] leading-[1rem] md:leading-5">
             <p className="font-normal">
             <span className="font-bold text-justify">Unkle Fon</span> is one of the key figures in Madrid's techno scene, known for his raw, dark sound
              deeply influenced by old-school techno. With over 20 years of experience, he has performed at
@@ -34,12 +34,12 @@ const DjProfile2 = () => {
              cultural pioneer.
             </p>
           </div>
-          <div className="hidden md:flex flex-col text-[3.5vh] md:text-[4.5vh] leading-[1.5rem] md:leading-[2rem]">
-            <div>@soundcloud</div>
-            <div>@bandcamp</div>
-            <div>@instagram</div>
+          <div className="hidden font-bold md:flex flex-col text-[3.5vh] md:text-4xl leading-[1.5rem] md:leading-[2rem]">
+            <div>↗ soundcloud</div>
+            <div>↗ bandcamp</div>
+            <div>↗ instagram</div>
           </div>
-          <div className="hidden md:flex text-[3.5vh] md:text-[4.5vh]">@booking</div>
+          <div className=" font-bold hidden md:flex text-[3.5vh] md:text-4xl">@booking</div>
         </div>
       </div>
 
