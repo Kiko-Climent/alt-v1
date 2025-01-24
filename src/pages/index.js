@@ -10,8 +10,10 @@ import PageTransition from "@/components/Layout/Page_Transition";
 export default function Home() {
   return (
     <PageTransition2>
-      <Splash />
-      {/* <Home3 /> */}
+      <>
+      {/* <Splash /> */}
+      <Home3 />
+      </>
     </PageTransition2>
   );
 }
