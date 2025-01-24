@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import { useInView, motion } from "framer";
 import LocalTime from "../Features/LocalTime";
+import Image from "next/image";
 
 const logoAnimation = {
   initial: { clipPath: "inset(0 100% 0 0)" },
@@ -51,16 +52,16 @@ const Splash = () => {
   return (
     <section
       ref={body}
-      className="h-screen w-screen flex justify-center items-center bg-black overflow-hidden"
+      className="h-screen w-screen flex justify-center items-center bg-black overflow-hidden px-4"
     >
       {/* Mostrar MADRID */}
       {displayElement === "madrid" && (
-        <div className="flex text-center text-white font-bold text-xl tracking-wider">MADRID</div>
+        <div className="flex text-center text-white font-bold text-base md:text-xl tracking-wider">MADRID</div>
       )}
 
       {/* Mostrar la hora */}
       {displayElement === "time" && (
-        <div className="flex text-center text-white font-bold text-xl mono tracking-tight">
+        <div className="flex text-center text-white font-bold text-base md:text-xl mono tracking-tight">
           <LocalTime />
         </div>
       )}
@@ -68,10 +69,10 @@ const Splash = () => {
       {/* Mostrar la imagen (flash) */}
       {displayElement === "image" && (
         <div className="flex h-full w-full justify-center items-center">
-          <img
+          <Image
             src="/images/image00047.jpeg"
-            width={400}
-            height={400}
+            width={500}
+            height={500}
             style={{
               objectFit: "cover",
             }}
@@ -85,9 +86,9 @@ const Splash = () => {
           variants={logoAnimation}
           initial="initial"
           animate={logoState}
-          className="flex h-full w-full justify-center items-center"
+          className="flex h-7/12 md:h-full w-7/12 justify-center items-center"
         >
-          <img
+          <Image
             src="/images/ALT_Alta_Logo_blanco.png"
             width={400}
             height={400}

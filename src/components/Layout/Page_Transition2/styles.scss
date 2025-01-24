@@ -7,6 +7,7 @@
     left: 0;
     pointer-events: none;
     display: flex;
+    z-index: 1000; // aplicar este z-index para realizar animacion de transicion completa entre paginas
 
     div{
       position: relative;

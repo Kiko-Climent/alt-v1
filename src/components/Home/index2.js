@@ -58,7 +58,7 @@ const Home3 = () => {
   return (
     <section
       ref={body}
-      className="flex items-center h-screen w-screen bg-black text-white text-[9vh] md:text-[8.3vw] uppercase px-2 relative overflow-hidden"
+      className="flex items-center h-screen w-screen bg-black text-white text-[7.7vh] md:text-[8.3vw] uppercase px-4 md:px-2 relative overflow-hidden"
     >
       {/* Lista de títulos */}
       <motion.div
@@ -66,7 +66,7 @@ const Home3 = () => {
         variants={animation}
         initial="initial"
         animate={isInView ? "enter" : ""}
-        className="relative z-10 home flex flex-col items-start justify-start tracking-tight leading-[0.75] blur-[0.7px]"
+        className="relative z-10 home flex flex-col items-start justify-start tracking-tight leading-[0.75] md:leading-[0.75] blur-[0.7px] gap-[0.4rem] md:gap-0"
       >
         {elements.map(({ name }, index) => (
           <motion.div

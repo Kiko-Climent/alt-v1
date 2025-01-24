@@ -15,15 +15,28 @@ const DjProfile2 = () => {
     }),
   };
 
+  // const nameAnimation = {
+  //   initial: { opacity: 0, scale: 0.8, filter: "blur(5px)" },
+  //   enter: {
+  //     opacity: 1,
+  //     scale: 1,
+  //     filter: "blur(0px)",
+  //     transition: {
+  //       duration: 0.8,
+  //       ease: "easeOut",
+  //       delay: 0.3,
+  //     },
+  //   },
+  // };
+
   const nameAnimation = {
-    initial: { opacity: 0, scale: 0.8, filter: "blur(5px)" },
+    initial: { clipPath: "inset(0 100% 0 0)" },
     enter: {
-      opacity: 1,
-      scale: 1,
-      filter: "blur(0px)",
+      clipPath: "inset(0 0 0% 0)",
+      
       transition: {
         duration: 0.8,
-        ease: "easeOut",
+        ease: [0.33, 1, 0.68, 1],
         delay: 0.3,
       },
     },
@@ -83,12 +96,15 @@ const DjProfile2 = () => {
           />
           {/* Contenido adicional visible solo en móviles */}
           <div className="font-bold md:hidden flex flex-col text-[2.3vh] gap-2 ">
-            <div className="leading-[1rem]">
+            <motion.div custom={1} variants={linksAnimation} initial="initial" animate={isInView ? "enter" : ""} 
+                        className="leading-[1.1rem]">
               <div>↗ soundcloud</div>
               <div>↗ bandcamp</div>
               <div>↗ instagram</div>
-            </div>
-            <div>@booking</div>
+            </motion.div>
+            <motion.div custom={1} variants={bookingAnimation} initial="initial" animate={isInView ? "enter" : ""}
+                        className="">
+              @booking</motion.div>
           </div>
         </motion.div>
         
