@@ -2,6 +2,7 @@
 // import PageTransition from "@/components/Layout/Page_Transition";
 import Statement from "@/components/About";
 import Statement2 from "@/components/About/index2";
+import PageTransition from "@/components/Layout/Page_Transition";
 import PageTransition2 from "@/components/Layout/Page_Transition2";
 
 
