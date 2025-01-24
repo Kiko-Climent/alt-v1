@@ -9,8 +9,8 @@ const Statement2 = () => {
   const isInView = useInView(body, {once: true, margin: "75%"})
 
   const animation = {
-    initial: {y: "100%", opacity: 0}, 
-    enter: (i) => ({y: "0", opacity: 1, transition: {duration: 0.75, ease: [0.33, 1, 0.68, 1],  delay: 0.075 * i}})
+    initial: {y: "100%", opacity: 0.1, filter: "blur(5px)"}, 
+    enter: (i) => ({y: "0", opacity: 1, filter: "blur(0px)", transition: {duration: 0.75, ease: [0.33, 1, 0.68, 1],  delay: 0.075 * i}})
 
   }
 
@@ -21,9 +21,8 @@ const Statement2 = () => {
   }
 
   const animationImage = {
-    initial: { scale: 0.9, opacity: 0 },
+    initial: { opacity: 0 },
     enter: {
-      scale: 1,
       opacity: 1,
       transition: { duration: 1, ease: [0.33, 1, 0.68, 1], delay: 1.4 },
     },

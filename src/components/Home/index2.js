@@ -43,7 +43,7 @@ const Home3 = () => {
   const isInView = useInView(body, { once: true, margin: "75%" });
 
   const animation = {
-    initial: { y: "100%", opacity: 0 },
+    initial: { y: "100%", opacity: 0.1 },
     enter: (i) => ({
       y: "0",
       opacity: 1, 

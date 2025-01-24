@@ -10,18 +10,10 @@ const LandingText = () => {
     navigate('/');
   };
   return(
-    <section className="relative h-screen w-full flex justify-center items-center overflow-hidden bg-black"
+    <section className="h-screen w-screen flex justify-center items-center bg-black overflow-hidden"
              onClick={handleNavigation} 
              onTouchStart={handleNavigation}>
-      <div className="relative flex w-9/12 lg:w-3/12 px-4 py-2">
-        {/* <h1 className="font-bold text-[#811a17] text-3xl md:text-[1.5vw] text-justify text-highlight !leading-7 md:!leading-5 blur-[0.5px] ">
-        nuestro
-        propósito es romper con las tendencias comerciales pasajeras y
-        centrarnos en lo que realmente importa: el arte, la innovación y la
-        conexión profunda con el público.
-        </h1> */}
-      </div>
-      <div className="flex absolute flex justify-center items-center h-full w-full opacity-50">
+      <div className="flex h-full w-full justify-center items-center opacity-50">
         <Image src="/images/ALT_Alta_Logo_blanco.png"
         width={400}
         height={400}
