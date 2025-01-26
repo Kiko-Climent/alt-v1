@@ -1,7 +1,7 @@
 // import Head from 'next/head'
 import Contact3 from "@/components/Contact";
-import ContactForm from "@/components/Contact";
 import Contact2 from "@/components/Contact/index2";
+import ContactInfo from "@/components/Contact/index2";
 import PageTransition from "@/components/Layout/Page_Transition";
 import PageTransition2 from "@/components/Layout/Page_Transition2";
 
@@ -15,7 +15,7 @@ export default function Contact() {
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
       <PageTransition2>
-        <Contact3 />
+        <ContactInfo />
       </PageTransition2>
     </>
   )

@@ -123,7 +123,8 @@ const DjProfile2 = () => {
              cultural pioneer.
             </motion.p>
           </div>
-          <motion.div custom={1} variants={linksAnimation} initial="initial" animate={isInView ? "enter" : ""} className="hidden font-bold md:flex flex-col text-[3.5vh] md:text-4xl leading-[1.5rem] md:leading-[2rem]">
+          <motion.div custom={1} variants={linksAnimation} initial="initial" animate={isInView ? "enter" : ""} 
+          className="hidden font-bold md:flex flex-col text-[3.5vh] md:text-4xl leading-[1.5rem] md:leading-[2rem]">
             <div>↗ soundcloud</div>
             <div>↗ bandcamp</div>
             <div>↗ instagram</div>
