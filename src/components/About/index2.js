@@ -35,16 +35,16 @@ const Statement2 = () => {
         <motion.p custom={1} variants={animation2} initial="initial" animate={isInView ? "enter" : ""}>about us</motion.p>
         <br/>
         <motion.p custom={1} variants={animation} initial="initial" animate={isInView ? "enter" : ""}>
-        A.L.T. "Against Low Trends" es una agencia boutique con un enfoque artístico dentro de la música electrónica.
-        Nuestro propósito es romper con las tendencias comerciales pasajeras y centrarnos en lo que realmente importa: el arte, la innovación y la conexión profunda con el público.
-        Creemos en la calidad sobre la cantidad.<br/><br/>
-        Trabajamos exclusivamente con un grupo selecto y reducido de artistas que comparten nuestra visión y están comprometidos con elevar su perfil artístico a nuevos niveles.
+        A.L.T. "Against Low Trends" is a boutique agency with an artistic focus within the electronic music scene.
+        Our purpose is to break away from fleeting commercial trends and focus on what truly matters: art, innovation, 
+        and a deep connection with the audience. We believe in quality over quantity.<br/><br/>
+        We work exclusively with a small, select group of artists who share our vision and are committed to elevating their artistic profile to new heights.
         <br/><br/>
-        Nuestra misión es clara: proporcionar a nuestros artistas una plataforma sólida para crecer, crear y expresarse generando oportunidades en clubes y/o festivales  que valoren la esencia genuina de la música electrónica.
+        Our mission is clear: to provide our artists with a solid platform to grow, create, and express themselves by generating opportunities in clubs and festivals that value the genuine essence of electronic music.
         <br/><br/>
 
-        Nos aliamos con espacios y eventos que aprecian la autenticidad y el riesgo artístico, asegurándonos de que cada presentación sea una experiencia memorable.
-        A.L.T. no es solo una agencia; es un movimiento que celebra la diversidad, la originalidad y la audacia.
+        We partner with spaces and events that appreciate authenticity and artistic risk.
+        A.L.T. is not just an agency; it’s a movement that celebrates diversity, originality, and boldness.
           </motion.p>
 
         </div>

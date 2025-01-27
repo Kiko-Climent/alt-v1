@@ -37,7 +37,7 @@ const Contact3 = () => {
           <h1>instagram:</h1>
           <p className="text-2xl md:text-4xl font-bold">@againstlt</p>         
         </div>
-        <div className="hidden md:block flex w-full md:w-auto justify-end">
+        {/* <div className="hidden md:block flex w-full md:w-auto justify-end">
           <img src="images/ALT_Blanco.png"
                 width={250}
                 height={250}
@@ -48,7 +48,7 @@ const Contact3 = () => {
                 width={200}
                 height={200}
                 className="object-contain"/>
-        </div>
+        </div> */}
         
       </div>
     </section>
