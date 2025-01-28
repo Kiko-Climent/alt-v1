@@ -115,7 +115,8 @@ const DjProfile2 = () => {
             <div>↗ bandcamp</div>
             <div>↗ instagram</div>
           </motion.div>
-          <motion.div custom={1} variants={bookingAnimation} initial="initial" animate={isInView ? "enter" : ""} className=" font-bold hidden md:flex text-[3.5vh] md:text-4xl">@booking</motion.div>
+          <motion.div custom={1} variants={bookingAnimation} initial="initial" animate={isInView ? "enter" : ""} 
+          className=" font-bold hidden md:flex text-[3.5vh] md:text-4xl">@booking</motion.div>
         </div>
       </div>
 

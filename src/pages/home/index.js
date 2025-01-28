@@ -15,8 +15,8 @@ export default function HomePage () {
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
     <PageTransition2>
-      <Home3 />
-      {/* <Home4 /> */}
+      {/* <Home3 /> */}
+      <Home4 />
     </PageTransition2>
     </>
   )

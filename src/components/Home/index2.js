@@ -6,14 +6,13 @@ import Image from "next/image";
 
 
 const elements = [
-  { name: "hermetica", image: "/images/IMG-20250115-WA0005.jpg", position: { top: "10%", right: "10%" } },
+  { name: "hermética", image: "/images/IMG-20250115-WA0005.jpg", position: { top: "10%", right: "10%" } },
   { name: "laia", image: "/images/IMG-20250115-WA0006.jpg", position: { top: "20%", right: "20%" } },
-  { name: "unkle fon", image: "/images/IMG-20250115-WA0005.jpg", position: { top: "15%", right: "40%" } },
   { name: "montero", image: "/images/IMG-20250115-WA0008.jpg", position: { top: "35%", right: "10%" } },
+  { name: "not a headliner", image: "/images/IMG-20250115-WA0005.jpg", position: { bottom: "50%", right: "10%" } },
   { name: "pyramidal decode", image: "/images/IMG-20250115-WA0008.jpg", position: { top: "10%", right: "10%" } },
   { name: "takt", image: "/images/IMG-20250115-WA0006.jpg", position: { top: "10%", right: "35%" } },
-  { name: "not a headliner", image: "/images/IMG-20250115-WA0005.jpg", position: { bottom: "50%", right: "10%" } },
-  { name: "atonism", image: "/images/IMG-20250115-WA0008.jpg", position: { bottom: "50%", right: "15%" } },
+  { name: "unkle fon", image: "/images/IMG-20250115-WA0005.jpg", position: { top: "15%", right: "40%" } },
 ];
 
 const Title = ({ name, isHovered, onHoverStart, onHoverEnd, isActive }) => {

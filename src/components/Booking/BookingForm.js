@@ -4,7 +4,7 @@ const DJBookingForm = () => {
   useEffect(() => {
     // Insertar el script solo una vez al montar el componente
     const script = document.createElement("script");
-    script.src = "https://connect.gigwell.com/booknow/booknow.js";
+    script.src = "https://connect.gigwell.com/roster/loader.js";
     script.type = "text/javascript";
     script.crossOrigin = "*";
     script.async = true;
@@ -18,11 +18,12 @@ const DJBookingForm = () => {
 
   return (
     <div>
-      <gigwell-booking-form
-        open-on-load="true"
-        agency-id="778319"
+      <gigwell-embedded-roster
+        agency="778319"
+        artist-id="779343"
         settings="default"
-      ></gigwell-booking-form>
+        standalone-profile="true"
+      ></gigwell-embedded-roster>
     </div>
   );
 };

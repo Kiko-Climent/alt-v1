@@ -22,7 +22,8 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-import Splash from "@/components/Splash";
+// import Splash from "@/components/Splash";
+import Splash2 from "@/components/Splash/index2";
 
 export default function SplashPage() {
   const router = useRouter();
@@ -30,11 +31,12 @@ export default function SplashPage() {
   useEffect(() => {
     const timer = setTimeout(() => {
       router.push("/home"); // Redirigir al contenido principal
-    }, 7500); // Ajustar según la duración de la animación
+    }, 5000); // Ajustar según la duración de la animación
+  // }, 7500); // Ajustar según la duración de la animación
 
     return () => clearTimeout(timer); // Limpiar el temporizador al desmontar
   }, [router]);
 
-  return <Splash />;
+  return <Splash2 />;
 }
 

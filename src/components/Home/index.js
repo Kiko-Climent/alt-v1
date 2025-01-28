@@ -37,7 +37,7 @@ const Home4 = () => {
           fetchedElements.push({
             id: doc.id, // El ID único de Firebase
             name: data.artist_name,
-            image: data.artist_img || "/default-image.jpg", // Fallback si no hay imagen
+            image: data.artist_img || "/images/IMG-20250115-WA0008.jpg", // Fallback si no hay imagen
             position: { top: "10%", right: "10%" }, // Actualiza según tus necesidades
           });
         });

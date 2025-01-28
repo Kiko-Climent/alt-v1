@@ -7,9 +7,9 @@ export default function Profile() {
   return(
     <>
     <PageTransition2>
-        {/* <DjProfile2 /> */}
+        <DjProfile2 />
         {/* <DjProfile /> */}
-        <ArtistList />
+        {/* <ArtistList /> */}
     </PageTransition2>
 
     </>
