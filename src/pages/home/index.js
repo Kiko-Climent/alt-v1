@@ -2,6 +2,7 @@
 
 import PageTransition2 from "@/components/Layout/Page_Transition2";
 import Home3 from "@/components/Home/index2";
+import Home4 from "@/components/Home";
 
 
 export default function HomePage () {
@@ -15,6 +16,7 @@ export default function HomePage () {
       </Head> */}
     <PageTransition2>
       <Home3 />
+      {/* <Home4 /> */}
     </PageTransition2>
     </>
   )

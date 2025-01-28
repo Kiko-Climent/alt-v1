@@ -15,20 +15,6 @@ const DjProfile2 = () => {
     }),
   };
 
-  // const nameAnimation = {
-  //   initial: { opacity: 0, scale: 0.8, filter: "blur(5px)" },
-  //   enter: {
-  //     opacity: 1,
-  //     scale: 1,
-  //     filter: "blur(0px)",
-  //     transition: {
-  //       duration: 0.8,
-  //       ease: "easeOut",
-  //       delay: 0.3,
-  //     },
-  //   },
-  // };
-
   const nameAnimation = {
     initial: { clipPath: "inset(0 100% 0 0)" },
     enter: {

@@ -1,5 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import rosterReducer from "./slices/rosterSlice";
+import rosterReducer from "../components/Features/Roster/rosterSlice";
+
+
+
 
 
 export const store = configureStore({
