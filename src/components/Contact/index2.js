@@ -36,32 +36,36 @@ const ContactInfo = () => {
             <motion.p custom={1} variants={animation2} initial="initial" animate={isInView ? "enter" : ""} 
             className="font-bold">contact:</motion.p>
           </div>
-          <motion.div custom={1} variants={animation} initial="initial" animate={isInView ? "enter" : ""} className="flex flex-col text-base md:text-[1.5vw] leading-[1rem] md:leading-[1.4rem] tracking-[0.08em]">
+          <motion.div custom={1} variants={animation} initial="initial" animate={isInView ? "enter" : ""} 
+          className="flex flex-col text-base md:text-[1.5vw] leading-[1rem] md:leading-[1.4rem] tracking-[0.08em]">
             <p>office address</p>
             <p>A.L.T. / Against Low Trends S.L.</p>
             <p>C/ Caunedo 36 Local 1</p>
             <p>28037 Madrid</p>
           </motion.div>
-          <div className="flex flex-col text-base md:text-[1.5vw] tracking-[0.08em] leading-[0.7rem] md:leading-none">
-            <p>phone</p>
-            <p className="text-2xl md:text-4xl font-bold">+34 91700987165</p>
-          </div>
-          <div className="flex flex-col text-base md:text-[1.5vw] tracking-[0.08em] leading-[0.7rem] md:leading-none">
-            <p>booking enquires</p>
-            <p className="text-2xl md:text-4xl font-bold">ernesto@againstlt.com</p>
-          </div>
-          <div className="flex flex-col text-base md:text-[1.5vw] tracking-[0.08em] leading-[0.7rem] md:leading-none">
-            <p>press enquires</p>
-            <p className="text-2xl md:text-4xl font-bold">manu@againstlt.com</p>
-          </div>
-          <div className="flex flex-col text-base md:text-[1.5vw] tracking-[0.08em] leading-[0.7rem] md:leading-none">
-            <p>all other inquires</p>
-            <p className="text-2xl md:text-4xl font-bold">info@againstlt.com</p>
-          </div>
-          <div className="flex flex-col text-base md:text-[1.5vw] tracking-[0.08em] leading-[0.7rem] md:leading-none">
-            <p>booking forms</p>
-            <p className="text-2xl md:text-4xl font-bold">@booking</p>
-          </div>
+          <motion.div custom={1} variants={animation} initial="initial" animate={isInView ? "enter" : ""} 
+          className="flex flex-col gap-2">
+            <div className="flex flex-col text-base md:text-[1.5vw] tracking-[0.08em] leading-[0.7rem] md:leading-none">
+              <p>phone</p>
+              <a href="tel:+3491700987165" className="text-2xl md:text-4xl font-bold">+34 91700987165</a>
+            </div>
+            <div className="flex flex-col text-base md:text-[1.5vw] tracking-[0.08em] leading-[0.7rem] md:leading-none">
+              <p>booking enquires</p>
+              <a href="mailto:ernesto@againstlt.com" className="text-2xl md:text-4xl font-bold">ernesto@againstlt.com</a>
+            </div>
+            <div className="flex flex-col text-base md:text-[1.5vw] tracking-[0.08em] leading-[0.7rem] md:leading-none">
+              <p>press enquires</p>
+              <a href="mailto:ernesto@againstlt.com" className="text-2xl md:text-4xl font-bold">manu@againstlt.com</a>
+            </div>
+            <div className="flex flex-col text-base md:text-[1.5vw] tracking-[0.08em] leading-[0.7rem] md:leading-none">
+              <p>all other inquires</p>
+              <a href="mailto:ernesto@againstlt.com" className="text-2xl md:text-4xl font-bold">info@againstlt.com</a>
+            </div>
+            <div className="flex flex-col text-base md:text-[1.5vw] tracking-[0.08em] leading-[0.7rem] md:leading-none">
+              <p>booking forms</p>
+              <p className="text-2xl md:text-4xl font-bold">@booking</p>
+            </div>
+          </motion.div>
           {/* <div className="flex flex-col text-base md:text-[1.5vw] tracking-[0.08em] leading-[1.2rem]">
             <p>office address</p>
             <p>A.L.T. / Against Low Trends S.L.</p>
@@ -69,7 +73,9 @@ const ContactInfo = () => {
             <p>28037 Madrid</p>
           </div> */}
         </div>
-        <div className="flex flex-col gap-2">
+        <motion.div variants={animationImage}
+          initial="initial"
+          animate={isInView ? "enter" : ""} className="flex flex-col gap-2">
           <div className="invisible flex md:hidden">placeholder</div>
           <img src="images/ALT_Blanco.png"
                 width={250}
@@ -91,7 +97,7 @@ const ContactInfo = () => {
                 width={250}
                 height={250}
                 className="object-contain"/> */}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

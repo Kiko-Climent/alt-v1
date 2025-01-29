@@ -5,6 +5,7 @@ import { useInView, motion } from "framer-motion";
 import Image from "next/image";
 
 
+
 const elements = [
   { name: "hermética", image: "/images/IMG-20250115-WA0005.jpg", position: { top: "10%", right: "10%" } },
   { name: "laia", image: "/images/IMG-20250115-WA0006.jpg", position: { top: "20%", right: "20%" } },

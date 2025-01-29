@@ -1,5 +1,6 @@
 // import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Header2 from "@/components/Header2";
 import "@/styles/globals.css";
 import "@/components/Layout/Page_Transition2/styles.scss";
 import { AnimatePresence } from "framer";
