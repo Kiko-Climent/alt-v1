@@ -6,10 +6,12 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { db } from "@/utils/firebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
+import BookingModal from "../Booking/BookingModal";
 
 const ArtistProfile = () => {
   const router = useRouter();
   const [artist, setArtist] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const id = router.query.id;
 
   useEffect(() => {
@@ -31,6 +33,20 @@ const ArtistProfile = () => {
 
     fetchArtist();
   }, [id]); // Eliminé `router.isReady` porque no es necesario aquí
+
+  useEffect(() => {
+    if (isModalOpen && artist?.booking_embed) {
+      const script = document.createElement("script");
+      script.src = "https://connect.gigwell.com/roster/loader.js";
+      script.type = "text/javascript";
+      script.crossOrigin = "*";
+      document.body.appendChild(script);
+
+      return () => {
+        document.body.removeChild(script); // Limpia el script al cerrar el modal
+      };
+    }
+  }, [isModalOpen, artist]);
 
   // Mientras se cargan los datos, muestra un estado de carga
   if (!artist) {
@@ -90,20 +106,25 @@ const ArtistProfile = () => {
           initial={{ clipPath: "inset(100% 0 0 0)", filter: "blur(10px)", opacity: 0, }}
           animate={{clipPath: "inset(0 0 0 0)", filter: "blur(0px)", opacity: 1 }}
           transition={{ duration: 0.85, delay: 0.4 }}
-          className="hidden font-bold md:flex flex-col text-[3.5vh] md:text-4xl leading-[1.5rem] md:leading-[2rem]">
+          className="hidden font-bold md:flex flex-col text-[3.5vh] md:text-4xl leading-[1.5rem] md:leading-[2.2rem]">
             <div>↗ soundcloud</div>
             <div>↗ bandcamp</div>
             <div>↗ instagram</div>
           </motion.div>
           <motion.div
-          initial={{ filter: "blur(10px)", opacity: 0, }}
-          animate={{ filter: "blur(0px)", opacity: 1 }}
-          transition={{ duration: 0.95, delay: 0.6 }}
-          className="font-bold hidden md:flex text-[3.5vh] md:text-4xl">
+            initial={{ filter: "blur(10px)", opacity: 0 }}
+            animate={{ filter: "blur(0px)", opacity: 1 }}
+            transition={{ duration: 0.95, delay: 0.6 }}
+            className="font-bold hidden md:flex text-[3.5vh] md:text-4xl cursor-pointer"
+            onClick={() => setIsModalOpen(true)}
+          >
             @booking
           </motion.div>
+
+          <BookingModal embedCode={artist.booking_embed} isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
         </div>
       </div>
+      
     </motion.section>
   );
 };
