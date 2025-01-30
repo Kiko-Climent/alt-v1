@@ -231,7 +231,7 @@ const Home4 = () => {
           <Image
             src={elements.find((el) => el.name === hoveredElement).image}
             alt={hoveredElement}
-            width={400}
+            width={500}
             height={300}
             style={{ objectFit: "cover" }}
           />
