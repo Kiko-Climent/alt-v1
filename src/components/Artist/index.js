@@ -78,13 +78,24 @@ const ArtistProfile = () => {
               priority
             />
           </motion.div>
-          <div className="font-bold md:hidden flex flex-col text-[2.3vh] gap-2">
-            <div className="leading-[1.1rem]">
+          <div className="font-bold md:hidden flex flex-col h-full justify-center text-[2.2vh] gap-2">
+            <motion.div 
+              initial={{ clipPath: "inset(100% 0 0 0)", filter: "blur(10px)", opacity: 0, }}
+              animate={{clipPath: "inset(0 0 0 0)", filter: "blur(0px)", opacity: 1 }}
+              transition={{ duration: 0.85, delay: 0.4 }} className="leading-[1.1rem]">
               <div>↗ soundcloud</div>
               <div>↗ bandcamp</div>
               <div>↗ instagram</div>
-            </div>
-            <div>@booking</div>
+            </motion.div>
+            <motion.div
+            initial={{ filter: "blur(10px)", opacity: 0 }}
+            animate={{ filter: "blur(0px)", opacity: 1 }}
+            transition={{ duration: 0.95, delay: 0.6 }}
+            onClick={() => setIsModalOpen(true)}
+          >
+            @booking
+          </motion.div>
+          <BookingModal embedCode={artist.booking_embed} isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
           </div>
         </div>
 
@@ -106,7 +117,7 @@ const ArtistProfile = () => {
           initial={{ clipPath: "inset(100% 0 0 0)", filter: "blur(10px)", opacity: 0, }}
           animate={{clipPath: "inset(0 0 0 0)", filter: "blur(0px)", opacity: 1 }}
           transition={{ duration: 0.85, delay: 0.4 }}
-          className="hidden font-bold md:flex flex-col text-[3.5vh] md:text-4xl leading-[1.5rem] md:leading-[2.2rem]">
+          className="hidden font-bold md:flex flex-col text-4xl leading-[2.3rem]">
             <div>↗ soundcloud</div>
             <div>↗ bandcamp</div>
             <div>↗ instagram</div>

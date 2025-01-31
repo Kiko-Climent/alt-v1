@@ -13,13 +13,13 @@ const logoAnimation = {
       ease: [0.33, 1, 0.68, 1],
     },
   },
-  exit: {
-    clipPath: "inset(0 100% 0 0)",
-    transition: {
-      duration: 3,
-      ease: [0.33, 1, 0.68, 1],
-    },
-  },
+  // exit: {
+  //   clipPath: "inset(0 100% 0 0)",
+  //   transition: {
+  //     duration: 3,
+  //     ease: [0.33, 1, 0.68, 1],
+  //   },
+  // },
 };
 
 const Splash2 = () => {
@@ -31,7 +31,7 @@ const Splash2 = () => {
     // Controlar el flujo de animaciones
     const timer1 = setTimeout(() => {
       setDisplayElement("image"); // Mostrar la imagen (flash)
-    }, 300); // Retraso inicial antes del chispazo (300ms)
+    }, 400); // Retraso inicial antes del chispazo (300ms)
 
     const timer2 = setTimeout(() => {
       setDisplayElement("logo"); // Pasar al logo tras el chispazo
@@ -57,6 +57,7 @@ const Splash2 = () => {
         <div className="flex h-full w-full justify-center items-center">
           <Image
             src="/images/image00047.jpeg"
+            alt="Splash Image"
             width={500}
             height={500}
             style={{

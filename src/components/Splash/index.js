@@ -72,7 +72,7 @@ const Splash = () => {
           <Image
             src="/images/image00047.jpeg"
             width={500}
-            height={500}
+            height={300}
             style={{
               objectFit: "cover",
             }}
