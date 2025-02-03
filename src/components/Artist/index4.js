@@ -95,25 +95,11 @@ const ArtistProfile4 = () => {
         >
         <p className="text-[1.5vw] font-bold tracking-[0.08em] leading-4 md:leading-5">
           {artist.artist_name} <span className="font-normal">{artist.artist_bio}</span></p>
-          {showInfo && (
-          <motion.div
-            initial={{ filter: "blur(10px)", opacity: 0 }}
-            animate={{ filter: "blur(0px)", opacity: 1 }}
-            transition={{ duration: 0.95, delay: 0.6 }}
-            className="flex-col text-4xl leading-9"
-          >
-            <p className="font-bold cursor-pointer"
-              onClick={() => setIsModalOpen(true)}>↗ booking</p>
-          {artist.social_links && 
-          Object.entries(artist.social_links).map(([platform,link]) =>
-            link ? (
-              <p key={platform} className="font-bold cursor-pointer">
-                <a href={link} target="_blank" rel="noopener noreferrer">↗ {platform}</a>
-              </p>
-            ) : null
-          )}
-          </motion.div>
-          )}
+        {/* <div className="flex text-4xl">
+          <div className="cursor-pointer">soundcloud, </div>
+          <div className="cursor-pointer">bandcamp, </div>
+          <div className="cursor-pointer">instagram</div>
+        </div>  */}
         </motion.div>
 
         <motion.div 
@@ -121,20 +107,40 @@ const ArtistProfile4 = () => {
           animate={{ filter: "blur(0px)", opacity: 1 }}
           
           transition={{ duration: 0.95, delay: 0.6 }}
-          className="absolute bottom-1 right-2 text-[1.5vw] flex flex-col items-end blur-[0.5px]">
+          className="absolute bottom-1 right-1 text-[1.5vw] flex flex-col items-end blur-[0.5px]">
           <motion.div 
             initial={{ filter: "blur(10px)", opacity: 0 }}
             animate={{ filter: "blur(0px)", opacity: 1 }}
             transition={{ duration: 0.95, delay: 1.2 }}
           >
+            <p className="font-bold cursor-pointer"
+              onClick={() => setIsModalOpen(true)}>↗ booking</p>
             <p className="font-bold -mt-3 cursor-pointer"
-              onClick={() => setShowInfo(!showInfo)}>+</p>
+              onClick={() => setShowInfo(!showInfo)}>+ info</p>
               
           </motion.div>
                  
         </motion.div>
         
-
+        {showInfo && (
+          <motion.div 
+            initial={{ filter: "blur(10px)", opacity: 0 }}
+            animate={{ filter: "blur(0px)", opacity: 1 }}
+            exit={{ filter: "blur(10px)", opacity: 0 }}
+            transition={{ duration: 0.95, delay: 0.3 }}
+            className="absolute bottom-1 left-1 text-[1.5vw] flex flex-col items-end"
+          >
+            <motion.div 
+              initial={{ filter: "blur(10px)", opacity: 0 }}
+              animate={{ filter: "blur(0px)", opacity: 1 }}
+              transition={{ duration: 0.95, delay: 0.6 }}
+            >
+              <p className="font-bold cursor-pointer">↗ soundcloud</p>
+              <p className="font-bold -mt-3 cursor-pointer">↗ bandcamp</p>
+              <p className="font-bold -mt-3 cursor-pointer">↗ instagram</p>
+            </motion.div>
+          </motion.div>
+        )}
       </motion.div>
         <BookingModal embedCode={artist.booking_embed} isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
       <motion.div 

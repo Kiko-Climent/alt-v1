@@ -8,14 +8,14 @@ import { db } from "@/utils/firebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
 import BookingModal from "../Booking/BookingModal";
 
-const ArtistProfile = () => {
+const ArtistProfile3 = () => {
   const router = useRouter();
   const [artist, setArtist] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const id = router.query.id;
 
   useEffect(() => {
-    if (!id) return; // Evita continuar si el ID no está listo
+    if (!id) return; // Evito continuar si el ID no está listo
 
     const fetchArtist = async () => {
       try {
@@ -32,7 +32,7 @@ const ArtistProfile = () => {
     };
 
     fetchArtist();
-  }, [id]);
+  }, [id]); // Eliminé `router.isReady` porque no es necesario aquí
 
   useEffect(() => {
     if (isModalOpen && artist?.booking_embed) {
@@ -78,15 +78,15 @@ const ArtistProfile = () => {
               priority
             />
           </motion.div>
-          <div className="font-bold md:hidden flex flex-col h-full justify-center text-[2.3vh] gap-4">
+          <div className="font-bold md:hidden flex flex-col h-full justify-center text-[2.5vh] gap-4">
             <motion.div 
               initial={{ clipPath: "inset(100% 0 0 0)", filter: "blur(10px)", opacity: 0, }}
               animate={{clipPath: "inset(0 0 0 0)", filter: "blur(0px)", opacity: 1 }}
               transition={{ duration: 0.85, delay: 0.4 }} className="">
+              <h1 className="leading-[20px]">PYRAMIDAL DECODE</h1>
               <div>↗ soundcloud</div>
               <div>↗ bandcamp</div>
               <div>↗ instagram</div>
-            </motion.div>
             <motion.div
             initial={{ filter: "blur(10px)", opacity: 0 }}
             animate={{ filter: "blur(0px)", opacity: 1 }}
@@ -96,6 +96,7 @@ const ArtistProfile = () => {
             @booking
           </motion.div>
           <BookingModal embedCode={artist.booking_embed} isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
+            </motion.div>
           </div>
         </div>
 
@@ -140,4 +141,4 @@ const ArtistProfile = () => {
   );
 };
 
-export default ArtistProfile;
+export default ArtistProfile3;

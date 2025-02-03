@@ -66,12 +66,13 @@ const ContactInfo = () => {
               <p className="text-2xl md:text-4xl font-bold">@booking</p>
             </div>
           </motion.div>
-          {/* <div className="flex flex-col text-base md:text-[1.5vw] tracking-[0.08em] leading-[1.2rem]">
+          {/* <motion.div custom={1} variants={animation} initial="initial" animate={isInView ? "enter" : ""} 
+          className="flex flex-col text-base md:text-[1.5vw] leading-[1rem] md:leading-[1.4rem] tracking-[0.08em]">
             <p>office address</p>
             <p>A.L.T. / Against Low Trends S.L.</p>
             <p>C/ Caunedo 36 Local 1</p>
             <p>28037 Madrid</p>
-          </div> */}
+          </motion.div> */}
         </div>
         <motion.div variants={animationImage}
           initial="initial"
