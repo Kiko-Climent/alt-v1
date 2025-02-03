@@ -91,7 +91,7 @@ const ArtistProfile4 = () => {
           initial={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
           animate={{ opacity: showInfo ? 1 : 0, clipPath: showInfo ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)" }}
           transition={{ duration: 0.7 }}
-          className="absolute inset-0 bg-black flex flex-col items-center justify-center text-justify px-2 py-2 gap-4"
+          className="absolute inset-0 bg-black flex flex-col items-center justify-center text-justify px-2 gap-4"
         >
         <p className="text-[1.5vw] font-bold tracking-[0.08em] leading-4 md:leading-5">
           {artist.artist_name} <span className="font-normal">{artist.artist_bio}</span></p>
@@ -112,6 +112,8 @@ const ArtistProfile4 = () => {
               </p>
             ) : null
           )}
+          <p className="font-bold cursor-pointer pl-24"
+              onClick={() => setShowInfo(!showInfo)}>x</p>
           </motion.div>
           )}
         </motion.div>
@@ -124,8 +126,11 @@ const ArtistProfile4 = () => {
           className="absolute bottom-1 right-2 text-[1.5vw] flex flex-col items-end blur-[0.5px]">
           <motion.div 
             initial={{ filter: "blur(10px)", opacity: 0 }}
-            animate={{ filter: "blur(0px)", opacity: 1 }}
-            transition={{ duration: 0.95, delay: 1.2 }}
+            animate={{ 
+              filter: showInfo ? "blur(10px)" : "blur(0px)", 
+              opacity: showInfo ? 0 : 1 
+            }}
+            transition={{ duration: 0.95, delay: 0.5 }}
           >
             <p className="font-bold -mt-3 cursor-pointer"
               onClick={() => setShowInfo(!showInfo)}>+</p>
@@ -141,7 +146,7 @@ const ArtistProfile4 = () => {
           initial={{ clipPath: "inset(0 0 0 100%)", filter: "blur(10px)", opacity: 0, }}
           animate={{ clipPath: "inset(0 0 0 0)", filter: "blur(0px)", opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.9 }}>
-      <p className="text-5xl md:text-6xl font-bold blur-[0.5px]">
+      <p className="text-5xl md:text-7xl font-bold blur-[0.5px] pb-2">
         {artist.artist_name}
       </p>
       </motion.div>

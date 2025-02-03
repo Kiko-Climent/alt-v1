@@ -30,9 +30,10 @@ export default function SplashPage() {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      router.push("/home"); // Redirigir al contenido principal
-    }, 5000); // Ajustar según la duración de la animación
-  // }, 7500); // Ajustar según la duración de la animación
+      sessionStorage.setItem("visitedFromSplash", "true"); // Guardar estado en sessionStorage
+      router.push("/home");
+    }, 5000);
+
 
     return () => clearTimeout(timer); // Limpiar el temporizador al desmontar
   }, [router]);

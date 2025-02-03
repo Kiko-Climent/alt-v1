@@ -1,11 +1,21 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import PageTransition2 from "@/components/Layout/Page_Transition2";
 import Home3 from "@/components/Home/index2";
 import Home4 from "@/components/Home";
 
 
 export default function HomePage () {
+  const [showTransition, setShowTransition] = useState(true);
+
+  useEffect(() => {
+    if (sessionStorage.getItem("visitedFromSplash")) {
+      setShowTransition(false); // Si venimos del Splash, desactivar la transición
+      sessionStorage.removeItem("visitedFromSplash"); // Eliminar para que la próxima navegación tenga la transición
+    }
+  }, []);
+  
   return(
     <>
     {/* <Head>
@@ -14,10 +24,15 @@ export default function HomePage () {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
-    <PageTransition2>
-      {/* <Home3 /> */}
-      <Home4 />
-    </PageTransition2>
+    {showTransition ? (
+        <PageTransition2>
+          {/* <Home3 /> */}
+          <Home4 />
+        </PageTransition2>
+      ) : (
+        // <Home3 />
+        <Home4 />
+      )}
     </>
   )
 };
