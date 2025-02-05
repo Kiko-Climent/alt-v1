@@ -42,7 +42,7 @@ const Home4 = () => {
             id: doc.id,
             name: data.artist_name,
             image: data.artist_img || "/images/IMG-20250115-WA0008.jpg", // Fallback si no hay imagen
-            position: { top: "10%", right: "10%" }, // Actualiza según tus necesidades
+            position: data.position || { top: "10%", right: "10%" }, // Actualiza según tus necesidades
           });
         });
         setElements(fetchedElements);
@@ -170,7 +170,9 @@ const Home4 = () => {
       </motion.div>
 
       {/* Imagen dinámica al hacer hover */}
+      
       {hoveredElement && (
+        
         <motion.div
           key={hoveredElement}
           className="absolute z-0"

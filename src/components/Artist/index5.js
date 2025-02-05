@@ -8,7 +8,7 @@ import { db } from "@/utils/firebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
 import BookingModal from "../Booking/BookingModal";
 
-const ArtistProfile2 = () => {
+const ArtistProfile5 = () => {
 
   const router = useRouter();
   const [artist, setArtist] = useState(null);
@@ -79,33 +79,42 @@ const ArtistProfile2 = () => {
       {/* Contenedor de la imagen */}
       <motion.div 
         initial={{ clipPath: "inset(0 0 100% 0)", filter: "blur(10px)" }}
-        animate={{ clipPath:"inset(0 0 0% 0)", filter: "blur(0px)" }}
+        animate={{ clipPath: "inset(0 0 0% 0)", filter: "blur(0px)" }}
         transition={{ duration: 0.75, delay: 0.5 }}
-        className="relative flex flex-col items-center justify-center">
-        <img
-          src="/images/IMG-20250115-WA0008.jpg"
-          className="object-contain md:object-cover md:object-bottom h-screen px-12 md:px-0"
-          priority="true"
-        />
-
-        {/* <motion.div 
-            initial={{ clipPath: "inset(0 0 100% 0)", filter: "blur(10px)" }}
-            animate={{ clipPath: "inset(0 0 0% 0)", filter: "blur(0px)" }}
-            transition={{ duration: 0.75, delay: 0.5 }}
-            className="relative flex items-center justify-center h-screen w-full"
+        className="relative flex items-center justify-center h-screen w-full pt-0 md:pt-24"
         >
-            <img
-                src="/images/IMG-20250115-WA0008.jpg"
-                className="w-3/4 md:w-1/2 lg:w-1/3 object-contain md:object-cover"
-            /> */}
+        <img
+            src="/images/IMG-20250115-WA0008.jpg"
+            className="w-3/4 md:w-1/2 lg:w-1/3 object-contain md:object-cover"
+        />
+        <motion.div 
+          initial={{ filter: "blur(10px)", opacity: 0 }}
+          animate={{ filter: "blur(0px)", opacity: 1 }}
+          
+          transition={{ duration: 0.95, delay: 0.6 }}
+          className="hidden md:block text-2xl md:text-[1.5vw] flex flex-col self-stretch md:self-end blur-[0.5px]">
+          <motion.div
+          className="absolute bottom-0 md:bottom-0 right-4 md:right-1"
+            initial={{ filter: "blur(10px)", opacity: 0 }}
+            animate={{ 
+              filter: showInfo ? "blur(10px)" : "blur(0px)", 
+              opacity: showInfo ? 0 : 1 
+            }}
+            transition={{ duration: 0.95, delay: 0.5 }}
+          >
+            <p className="font-bold cursor-pointer"
+              onClick={() => setShowInfo(!showInfo)}>+</p>
+              
+          </motion.div>                
+        </motion.div>
 
         <motion.div 
           initial={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
           animate={{ opacity: showInfo ? 1 : 0, clipPath: showInfo ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)" }}
           transition={{ duration: 0.7 }}
-          className="absolute inset-0 bg-black flex flex-col items-center justify-center text-center px-4 md:px-2 gap-4"
+          className="absolute inset-0 bg-black flex flex-col items-center justify-evenly text-center px-4 md:px-2 gap-4"
         >
-        <p className="text-base md:text-[1.5vw] font-bold tracking-[0.08em] leading-4 md:leading-5">
+        <p className="w-full md:w-1/2 text-base md:text-[1.5vw] font-bold tracking-[0.08em] leading-4 md:leading-5">
           {artist.artist_name} <span className="font-normal">{artist.artist_bio}</span></p>
           {showInfo && (
           <motion.div
@@ -124,36 +133,42 @@ const ArtistProfile2 = () => {
               </p>
             ) : null
           )}
-          <p className="font-bold cursor-pointer mt-3 text-center"
+          <p className="hidden md:block font-bold cursor-pointer mt-2 text-center"
               onClick={() => setShowInfo(!showInfo)}>x</p>
           </motion.div>
           )}
         </motion.div>
 
-        <motion.div 
-          initial={{ filter: "blur(10px)", opacity: 0 }}
-          animate={{ filter: "blur(0px)", opacity: 1 }}
-          
-          transition={{ duration: 0.95, delay: 0.6 }}
-          className="absolute bottom-0 md:bottom-0 right-4 md:right-1 text-xl md:text-[1.5vw] flex flex-col items-end blur-[0.5px]">
-          <motion.div 
-            initial={{ filter: "blur(10px)", opacity: 0 }}
-            animate={{ 
-              filter: showInfo ? "blur(10px)" : "blur(0px)", 
-              opacity: showInfo ? 0 : 1 
-            }}
-            transition={{ duration: 0.95, delay: 0.5 }}
-          >
-            <p className="font-bold cursor-pointer"
-              onClick={() => setShowInfo(!showInfo)}>+</p>
-              
-          </motion.div>
-                 
-        </motion.div>
-        
-
       </motion.div>
         <BookingModal embedCode={artist.booking_embed} isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
+        <motion.div 
+  initial={{ filter: "blur(10px)", opacity: 0 }}
+  animate={{ filter: "blur(0px)", opacity: 1 }}       
+  transition={{ duration: 0.95, delay: 0.6 }}
+  className="block md:hidden text-center"
+>
+  <motion.p 
+    className="font-bold cursor-pointer text-2xl"
+    initial={{ filter: "blur(10px)", opacity: 0 }}
+    animate={{ 
+      filter: "blur(0px)", 
+      opacity: 1 
+    }}
+    transition={{ duration: 0.95, delay: 0.5 }}
+    onClick={() => setShowInfo(!showInfo)}
+  >
+    <motion.span
+      key={showInfo} // Forza la animación cuando cambia de "+" a "x"
+      initial={{ opacity: 0, filter: "blur(10px)" }}
+      animate={{ opacity: 1, filter: "blur(0px)" }}
+      exit={{ opacity: 0, filter: "blur(10px)" }}
+      transition={{ duration: 0.5 }}
+    >
+      {showInfo ? "x" : "+ info"}
+    </motion.span>
+  </motion.p>
+</motion.div>
+
       <motion.div 
           initial={{ clipPath: "inset(0 0 0 100%)", filter: "blur(10px)", opacity: 0, }}
           animate={{ clipPath: "inset(0 0 0 0)", filter: "blur(0px)", opacity: 1 }}
@@ -167,5 +182,5 @@ const ArtistProfile2 = () => {
   );
 };
 
-export default ArtistProfile2;
+export default ArtistProfile5;
 

@@ -8,7 +8,7 @@ import { db } from "@/utils/firebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
 import BookingModal from "../Booking/BookingModal";
 
-const ArtistProfile2 = () => {
+const ArtistProfile6 = () => {
 
   const router = useRouter();
   const [artist, setArtist] = useState(null);
@@ -77,35 +77,25 @@ const ArtistProfile2 = () => {
         AGAINST LOW TRENDS
       </motion.p>
       {/* Contenedor de la imagen */}
-      <motion.div 
-        initial={{ clipPath: "inset(0 0 100% 0)", filter: "blur(10px)" }}
-        animate={{ clipPath:"inset(0 0 0% 0)", filter: "blur(0px)" }}
-        transition={{ duration: 0.75, delay: 0.5 }}
-        className="relative flex flex-col items-center justify-center">
-        <img
-          src="/images/IMG-20250115-WA0008.jpg"
-          className="object-contain md:object-cover md:object-bottom h-screen px-12 md:px-0"
-          priority="true"
-        />
-
-        {/* <motion.div 
+      <motion.div
             initial={{ clipPath: "inset(0 0 100% 0)", filter: "blur(10px)" }}
             animate={{ clipPath: "inset(0 0 0% 0)", filter: "blur(0px)" }}
             transition={{ duration: 0.75, delay: 0.5 }}
-            className="relative flex items-center justify-center h-screen w-full"
+            className="relative flex items-center justify-center h-screen w-full pt-0 md:pt-24"
         >
             <img
                 src="/images/IMG-20250115-WA0008.jpg"
                 className="w-3/4 md:w-1/2 lg:w-1/3 object-contain md:object-cover"
-            /> */}
+                onClick={() => setShowInfo(!showInfo)}
+            />
 
         <motion.div 
           initial={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
           animate={{ opacity: showInfo ? 1 : 0, clipPath: showInfo ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)" }}
           transition={{ duration: 0.7 }}
-          className="absolute inset-0 bg-black flex flex-col items-center justify-center text-center px-4 md:px-2 gap-4"
+          className="absolute inset-0 bg-black flex flex-col items-center justify-evenly text-center px-4 md:px-2"
         >
-        <p className="text-base md:text-[1.5vw] font-bold tracking-[0.08em] leading-4 md:leading-5">
+        <p className="w-full md:w-1/2 text-base md:text-[1.5vw] font-bold tracking-[0.08em] leading-4 md:leading-5">
           {artist.artist_name} <span className="font-normal">{artist.artist_bio}</span></p>
           {showInfo && (
           <motion.div
@@ -124,13 +114,11 @@ const ArtistProfile2 = () => {
               </p>
             ) : null
           )}
-          <p className="font-bold cursor-pointer mt-3 text-center"
-              onClick={() => setShowInfo(!showInfo)}>x</p>
           </motion.div>
           )}
         </motion.div>
 
-        <motion.div 
+        {/* <motion.div 
           initial={{ filter: "blur(10px)", opacity: 0 }}
           animate={{ filter: "blur(0px)", opacity: 1 }}
           
@@ -149,23 +137,44 @@ const ArtistProfile2 = () => {
               
           </motion.div>
                  
-        </motion.div>
+        </motion.div> */}
         
 
       </motion.div>
         <BookingModal embedCode={artist.booking_embed} isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
-      <motion.div 
-          initial={{ clipPath: "inset(0 0 0 100%)", filter: "blur(10px)", opacity: 0, }}
+        <motion.div 
+          initial={{ clipPath: "inset(0 0 0 100%)", filter: "blur(10px)", opacity: 0 }}
           animate={{ clipPath: "inset(0 0 0 0)", filter: "blur(0px)", opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.9 }}>
-      <p className="text-[2.7rem] md:text-7xl font-bold blur-[0.5px] pb-1 md:pb-2">
-        {artist.artist_name}
-      </p>
-      </motion.div>
+          transition={{ duration: 0.8, delay: 0.9 }}
+          className="flex items-center gap-3" // Añade esto para que el "+" esté al lado
+        >
+          <p className="text-[2.5rem] md:text-7xl font-bold blur-[0.5px] pb-1 md:pb-2">
+            {artist.artist_name}
+          </p>
+          
+          <motion.p 
+            initial={{ filter: "blur(10px)", opacity: 0 }}
+            animate={{ filter: "blur(0px)", opacity: 1 }}
+            transition={{ duration: 0.95, delay: 0.6 }}
+            className="text-4xl md:text-5xl font-bold cursor-pointer"
+            onClick={() => setShowInfo(!showInfo)}
+            style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+          >
+            <motion.span
+              initial={{ rotate: 0 }}  // Empieza sin rotación
+              animate={{ rotate: showInfo ? 45 : 0 }}  // Rota 90 grados al hacer clic
+              transition={{ duration: 0.5 }}  // Duración del giro
+              style={{ display: 'inline-block' }}
+            >
+              +
+            </motion.span>
+          </motion.p>
+
+        </motion.div>
 
     </motion.section>
   );
 };
 
-export default ArtistProfile2;
+export default ArtistProfile6;
 
