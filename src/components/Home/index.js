@@ -18,9 +18,10 @@ const Home4 = () => {
 
 
   const animation = {
-    initial: { y: "100%", opacity: 0.1 },
+    initial: { y: "100%", opacity: 0.1, filter: "blur(10px)" },
     enter: (i) => ({
       y: "0",
+      filter: "blur(0.7px)",
       opacity: 1,
       transition: {
         duration: 0.75,
@@ -81,7 +82,7 @@ const Home4 = () => {
   return (
     <section
       ref={body}
-      className="flex items-center h-screen w-screen bg-black text-white text-[7.7vh] md:text-[8.3vw] uppercase px-4 md:px-2 relative overflow-hidden"
+      className="flex items-center justify-center md:justify-start h-screen w-screen bg-black text-white text-[7.7vh] md:text-[8.3vw] uppercase px-4 md:px-2 relative overflow-hidden"
     >
       {/* Lista de títulos */}
       <motion.div
@@ -89,7 +90,7 @@ const Home4 = () => {
         variants={animation}
         initial="initial"
         animate={isInView ? "enter" : ""}
-        className="relative z-10 home flex flex-col items-start justify-start tracking-tight leading-[0.75] md:leading-[0.75] blur-[0.7px] gap-[0.4rem] md:gap-0"
+        className="relative z-10 home flex flex-col text-center items-center md:items-start tracking-tight leading-[0.75] md:leading-[0.75] gap-[0.4rem] md:gap-0"
       >
         {elements.map(({ id, name }, index) => (
           <motion.div
@@ -99,27 +100,6 @@ const Home4 = () => {
             initial="initial"
             animate={isInView ? "enter" : ""}
           >
-            {/* <motion.h1
-              className="flex transition-colors duration-300 hover:font-bold cursor-pointer"
-              style={{
-                opacity:
-                  hoveredElement && hoveredElement !== name && selectedElement !== name
-                    ? 0.2
-                    : 1, // Opacidad para los artistas no seleccionados
-                color:
-                  selectedElement === name
-                    ? "#ed3833"
-                    : hoveredElement === name
-                    ? "#ed3833"
-                    : "white", // Color rojo si está seleccionado o en hover, blanco si no
-              }}
-              onHoverStart={() => setHoveredElement(name)}
-              onHoverEnd={() => setHoveredElement(null)}
-              onClick={() => handleArtistClick(id, name)} // Pasar el nombre del artista seleccionado
-            >
-              {name}
-            </motion.h1> */}
-
             <motion.h1
               className="flex transition-colors duration-300 hover:font-bold cursor-pointer"
               style={{
@@ -127,7 +107,7 @@ const Home4 = () => {
                   selectedElement && selectedElement !== name // Si hay un seleccionado y no es este, desaparece
                     ? 0
                     : hoveredElement && hoveredElement !== name // Si hay hover en otro, baja la opacidad
-                    ? 0.2
+                    ? 0.1
                     : 1, // Si no hay selección ni hover, es visible
                 transition: "opacity 0.5s ease-in-out",
                 color:

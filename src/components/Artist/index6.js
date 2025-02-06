@@ -68,7 +68,7 @@ const ArtistProfile6 = () => {
           clipPath: "inset(100% 0 0 0)", filter: "blur(10px)" }}
         animate={{ 
           clipPath: showInfo ? "inset(100% 0 0 0)" : "inset(0 0 0% 0)",
-          filter: showInfo ? "blur(10px)" : "blur(0px)" 
+          filter: showInfo ? "blur(10px)" : "blur(0.7px)" 
           
         }}
         transition={{ duration: 0.75 }}
@@ -82,40 +82,56 @@ const ArtistProfile6 = () => {
             animate={{ clipPath: "inset(0 0 0% 0)", filter: "blur(0px)" }}
             transition={{ duration: 0.75, delay: 0.5 }}
             className="relative flex items-center justify-center h-screen w-full pt-0 md:pt-24"
+            
         >
-            <img
-                src="/images/IMG-20250115-WA0008.jpg"
-                className="w-3/4 md:w-1/2 lg:w-1/3 object-contain md:object-cover"
-                onClick={() => setShowInfo(!showInfo)}
-            />
+        <img
+            src="/images/IMG-20250115-WA0008.jpg"
+            className="w-3/4 md:w-1/2 lg:w-1/3 object-contain md:object-cover"
+            onClick={() => setShowInfo(!showInfo)}
+            
+        />
 
         <motion.div 
           initial={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
-          animate={{ opacity: showInfo ? 1 : 0, clipPath: showInfo ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)" }}
-          transition={{ duration: 0.7 }}
+          animate={{ 
+            opacity: showInfo ? 1 : 0, 
+            clipPath: showInfo ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)" 
+          }}
+          transition={{ duration: 0.7, opacity: { duration: 0.5, delay: 0.2 } }} 
           className="absolute inset-0 bg-black flex flex-col items-center justify-evenly text-center px-4 md:px-2"
         >
-        <p className="w-full md:w-1/2 text-base md:text-[1.5vw] font-bold tracking-[0.08em] leading-4 md:leading-5">
-          {artist.artist_name} <span className="font-normal">{artist.artist_bio}</span></p>
-          {showInfo && (
+          <motion.p 
+          initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
+          animate={{ opacity: showInfo ? 1 : 0, y: showInfo ? 0 : 10, filter: "blur(0px)" }}
+          transition={{ duration: 0.5, delay: showInfo ? 0.3 : 0 }}
+          className="w-full md:w-1/2 text-base md:text-[1.5vw] font-bold tracking-[0.08em] leading-4 md:leading-5">
+            {artist.artist_name} <span className="font-normal" onClick={() => setShowInfo(!showInfo)}>{artist.artist_bio}</span>
+          </motion.p>
+          
           <motion.div
-            initial={{ filter: "blur(10px)", opacity: 0 }}
-            animate={{ filter: "blur(0px)", opacity: 1 }}
-            transition={{ duration: 0.95, delay: 0.6 }}
-            className="flex-col text-2xl md:text-4xl leading-7 md:leading-9 justify-end"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: showInfo ? 1 : 0, y: showInfo ? 0 : 10 }}
+            transition={{ duration: 0.5, delay: showInfo ? 0.5 : 0 }} 
+            className="flex-col text-2xl md:text-4xl leading-7 md:leading-9 justify-end group"
           >
-            <p className="font-bold cursor-pointer text-justify"
-              onClick={() => setIsModalOpen(true)}>↗ booking</p>
-          {artist.social_links && 
-          Object.entries(artist.social_links).map(([platform,link]) =>
-            link ? (
-              <p key={platform} className="font-bold cursor-pointer text-justify">
-                <a href={link} target="_blank" rel="noopener noreferrer">↗ {platform}</a>
-              </p>
-            ) : null
-          )}
+            <p
+              className="font-bold cursor-pointer text-justify flex items-center gap-2"
+              onClick={() => setIsModalOpen(true)}
+            >
+              <span className="transform transition-transform duration-300 group-hover:rotate-45">↗</span>
+              booking
+            </p>
+            {artist.social_links &&
+              Object.entries(artist.social_links).map(([platform, link]) =>
+                link ? (
+                  <p key={platform} className="font-bold cursor-pointer text-justify">
+                    <a href={link} target="_blank" rel="noopener noreferrer">
+                      ↗ {platform}
+                    </a>
+                  </p>
+                ) : null
+              )}
           </motion.div>
-          )}
         </motion.div>
 
         {/* <motion.div 
@@ -146,7 +162,7 @@ const ArtistProfile6 = () => {
           initial={{ clipPath: "inset(0 0 0 100%)", filter: "blur(10px)", opacity: 0 }}
           animate={{ clipPath: "inset(0 0 0 0)", filter: "blur(0px)", opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="flex items-center gap-3" // Añade esto para que el "+" esté al lado
+          className="flex items-center gap-3"
         >
           <p className="text-[2.5rem] md:text-7xl font-bold blur-[0.5px] pb-1 md:pb-2">
             {artist.artist_name}
@@ -156,14 +172,14 @@ const ArtistProfile6 = () => {
             initial={{ filter: "blur(10px)", opacity: 0 }}
             animate={{ filter: "blur(0px)", opacity: 1 }}
             transition={{ duration: 0.95, delay: 0.6 }}
-            className="text-4xl md:text-5xl font-bold cursor-pointer"
+            className="text-3xl md:text-4xl font-bold cursor-pointer"
             onClick={() => setShowInfo(!showInfo)}
             style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
           >
             <motion.span
-              initial={{ rotate: 0 }}  // Empieza sin rotación
-              animate={{ rotate: showInfo ? 45 : 0 }}  // Rota 90 grados al hacer clic
-              transition={{ duration: 0.5 }}  // Duración del giro
+              initial={{ rotate: 0 }} 
+              animate={{ rotate: showInfo ? 45 : 0 }}
+              transition={{ duration: 0.5 }}
               style={{ display: 'inline-block' }}
             >
               +
