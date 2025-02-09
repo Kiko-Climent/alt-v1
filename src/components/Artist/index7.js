@@ -8,7 +8,7 @@ import { db } from "@/utils/firebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
 import BookingModal from "../Booking/BookingModal";
 
-const ArtistProfile6 = () => {
+const ArtistProfile7 = () => {
 
   const router = useRouter();
   const [artist, setArtist] = useState(null);
@@ -61,7 +61,7 @@ const ArtistProfile6 = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.75 }}
-      className="relative h-full lg:min-h-screen bg-black text-[#ed3833] text-[3.5vw] flex flex-col gap-1 items-center justify-center">
+      className="relative h-full lg:h-screen bg-black text-[#ed3833] text-[3.5vw] flex flex-col gap-1 items-center justify-center overflow-hidden">
       
       <motion.p
         initial={{ 
@@ -73,6 +73,7 @@ const ArtistProfile6 = () => {
         }}
         transition={{ duration: 0.75 }}
         className="absolute top-1/2 -translate-y-1/2 w-full text-[9.0vw] font-bold text-center z-0">
+      {/* <p className="absolute top-1/2 -translate-y-1/2 w-full text-[9.3vw] text-[#2e2e2e] font-bold text-center opacity-60 z-0"> */}
         AGAINST LOW TRENDS
       </motion.p>
       {/* Contenedor de la imagen */}
@@ -80,7 +81,7 @@ const ArtistProfile6 = () => {
             initial={{ clipPath: "inset(0 0 100% 0)", filter: "blur(10px)" }}
             animate={{ clipPath: "inset(0 0 0% 0)", filter: "blur(0px)" }}
             transition={{ duration: 0.75, delay: 0.5 }}
-            className="relative flex flex-col items-center justify-center h-screen w-full"
+            className="relative flex items-center justify-center h-screen w-full"
             
         >
         <img
@@ -97,7 +98,7 @@ const ArtistProfile6 = () => {
             clipPath: showInfo ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)" 
           }}
           transition={{ duration: 0.7, opacity: { duration: 0.5, delay: 0.2 } }} 
-          className="absolute inset-0 bg-black flex flex-col items-center justify-center lg:justify-evenly text-center px-4 md:px-2 gap-4"
+          className="absolute inset-0 bg-black flex flex-col items-center justify-center md:justify-evenly text-center px-4 md:px-2"
         >
           <motion.p 
           initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
@@ -132,11 +133,13 @@ const ArtistProfile6 = () => {
               )}
           </motion.div>
         </motion.div>
+      </motion.div>
+        <BookingModal embedCode={artist.booking_embed} isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
         <motion.div 
           initial={{ clipPath: "inset(0 0 0 100%)", filter: "blur(10px)", opacity: 0 }}
           animate={{ clipPath: "inset(0 0 0 0)", filter: "blur(0px)", opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="flex items-center gap-2 pt-48 lg:pt-0"
+          className="flex items-center gap-3"
         >
           <p className="text-[9.0vw] md:text-7xl font-bold blur-[0.5px] pb-1 md:pb-2">
             {artist.artist_name}
@@ -159,8 +162,6 @@ const ArtistProfile6 = () => {
               +
             </motion.span>
           </motion.p>
-      </motion.div>
-        <BookingModal embedCode={artist.booking_embed} isOpen={isModalOpen} setIsOpen={setIsModalOpen} />
 
         </motion.div>
 
@@ -168,5 +169,5 @@ const ArtistProfile6 = () => {
   );
 };
 
-export default ArtistProfile6;
+export default ArtistProfile7;
 

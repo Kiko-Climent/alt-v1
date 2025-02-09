@@ -22,27 +22,32 @@ const Splash2 = () => {
   const [logoState, setLogoState] = useState("initial");
 
   useEffect(() => {
-    // Simulamos carga (puedes cambiarlo por una comprobación real de imágenes, etc.)
+
     setTimeout(() => {
       setLoading(false); // Desactivar loader después de la carga simulada
-    }, 2000); // 2 segundos de carga falsa
+    }, 1500);
 
     // Controlar el flujo de animaciones
     const timer1 = setTimeout(() => {
       setDisplayElement("image");
-    }, 2500); // Aparece la imagen después del loader
+    }, 1600); // Aparece la imagen después del loader
 
     const timer2 = setTimeout(() => {
+      setDisplayElement(null); // Ocultar imagen después de 400ms
+    }, 2000); 
+
+    const timer3 = setTimeout(() => {
       setDisplayElement("logo");
       setLogoState("enter");
-    }, 2700); // Imagen visible solo 200ms
+    }, 2200); // Mostrar el logo después de que la imagen desaparezca
 
-    const timer3 = setTimeout(() => setLogoState("exit"), 6000); // Salida del logo después de 3.5 segundos desde que entra
+    const timer4 = setTimeout(() => setLogoState("exit"), 6000);
 
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
       clearTimeout(timer3);
+      clearTimeout(timer4);
     };
   }, []);
 

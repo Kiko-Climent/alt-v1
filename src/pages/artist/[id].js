@@ -1,11 +1,13 @@
 "use client"
 
-import ArtistProfile from "@/components/Artist";
-import ArtistProfile2 from "@/components/Artist/index2"; // *
-import ArtistProfile3 from "@/components/Artist/index3";
-import ArtistProfile4 from "@/components/Artist/index4";
-import ArtistProfile5 from "@/components/Artist/index5";
+// import ArtistProfile from "@/components/Artist";
+// import ArtistProfile2 from "@/components/Artist/index2"; // *
+// import ArtistProfile3 from "@/components/Artist/index3";
+// import ArtistProfile4 from "@/components/Artist/index4";
+// import ArtistProfile5 from "@/components/Artist/index5";
 import ArtistProfile6 from "@/components/Artist/index6"; // *
+import ArtistProfile7 from "@/components/Artist/index7";
+import ArtistProfile8 from "@/components/Artist/index8";
 // import ArtistProfile2 from "@/components/Artist/index2";
 import PageTransition2 from "@/components/Layout/Page_Transition2";
 
@@ -19,7 +21,7 @@ export default function Artist() {
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
       <PageTransition2>
-        <ArtistProfile6 />
+        <ArtistProfile8 />
       </PageTransition2>
     </>
   )

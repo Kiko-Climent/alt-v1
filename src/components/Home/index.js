@@ -18,10 +18,10 @@ const Home4 = () => {
 
 
   const animation = {
-    initial: { y: "100%", opacity: 0.1, filter: "blur(10px)" },
+    initial: { y: "100%", opacity: 0.1, filter: "blur(15px)" },
     enter: (i) => ({
       y: "0",
-      filter: "blur(0.7px)",
+      filter: "blur(0.3px)",
       opacity: 1,
       transition: {
         duration: 0.75,
@@ -82,7 +82,7 @@ const Home4 = () => {
   return (
     <section
       ref={body}
-      className="flex items-center justify-center md:justify-start h-screen w-screen bg-black text-white text-[7.7vh] md:text-[8.3vw] uppercase px-4 md:px-2 relative overflow-hidden"
+      className="flex items-center justify-center md:justify-start min-h-screen w-screen bg-black text-white text-[7.7vh] md:text-[8.3vw] uppercase px-4 md:px-2 pt-4 relative"
     >
       {/* Lista de títulos */}
       <motion.div
@@ -90,7 +90,7 @@ const Home4 = () => {
         variants={animation}
         initial="initial"
         animate={isInView ? "enter" : ""}
-        className="relative z-10 home flex flex-col text-center items-center md:items-start tracking-tight leading-[0.75] md:leading-[0.75] gap-[0.4rem] md:gap-0"
+        className="relative z-10 home flex flex-col text-center items-center md:items-start tracking-tight pb-4 leading-[0.75] md:leading-[0.75] gap-[0.4rem] md:gap-0"
       >
         {elements.map(({ id, name }, index) => (
           <motion.div
@@ -124,25 +124,6 @@ const Home4 = () => {
               {name}
             </motion.h1>
 
-
-            {/* <motion.h1
-              className="flex transition-colors duration-300 hover:font-bold cursor-pointer"
-              style={{
-                opacity: selectedElement && selectedElement !== name ? 0 : 1, // Los que no están seleccionados desaparecen suavemente
-                transition: "opacity 0.5s ease-in-out", // Transición de opacidad para que no desaparezcan de golpe
-                color:
-                  selectedElement === name
-                    ? "#ed3833"
-                    : hoveredElement === name
-                    ? "#ed3833"
-                    : "white",
-              }}
-              onHoverStart={() => setHoveredElement(name)}
-              onHoverEnd={() => setHoveredElement(null)}
-              onClick={() => handleArtistClick(id, name)}
-            >
-              {name}
-            </motion.h1> */}
 
 
           </motion.div>

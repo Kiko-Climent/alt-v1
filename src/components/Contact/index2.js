@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef } from "react";
 import { useInView, motion } from "framer";
 
@@ -29,8 +30,8 @@ const ContactInfo = () => {
 
 
   return(
-    <section className="h-screen px-4 text-[#ed3833] bg-black">
-      <div className="flex flex-col md:flex-row-reverse justify-center items-center h-full gap-0 md:gap-4">
+    <section className="min-h-screen px-4 text-[#ed3833] bg-black">
+      <div className="flex flex-col lg:flex-row-reverse justify-center items-center min-h-screen gap-0 md:gap-4">
         <div ref={body} className="flex flex-col gap-2 md:gap-2">
           <div className="flex text-base md:text-[1.5vw] tracking-[0.08em]">
             <motion.p custom={1} variants={animation2} initial="initial" animate={isInView ? "enter" : ""} 
@@ -76,28 +77,13 @@ const ContactInfo = () => {
         </div>
         <motion.div variants={animationImage}
           initial="initial"
-          animate={isInView ? "enter" : ""} className="flex flex-col gap-2">
+          animate={isInView ? "enter" : ""} className="flex flex-col gap-2 w-auto">
           <div className="invisible flex md:hidden">placeholder</div>
-          <img src="images/ALT_Blanco.png"
+          <Image src="/images/ALT_Blanco.png"
+                alt="ALT logo"
                 width={250}
                 height={250}
                 className="object-contain"/>
-                {/* <img src="images/ALT_Blanco.png"
-                width={250}
-                height={250}
-                className="object-contain"/>
-                <img src="images/ALT_Blanco.png"
-                width={250}
-                height={250}
-                className="object-contain"/>
-                <img src="images/ALT_Blanco.png"
-                width={250}
-                height={250}
-                className="object-contain"/>
-                <img src="images/ALT_Alta_Logo_blanco.png"
-                width={250}
-                height={250}
-                className="object-contain"/> */}
         </motion.div>
       </div>
     </section>
@@ -105,15 +91,3 @@ const ContactInfo = () => {
 }
 
 export default ContactInfo;
-
-// "use client";
-
-// const Contact4 = () => {
-//   return(
-//     <section className="h-screen px-4 text-[#ed3833] bg-black">
-
-//     </section>
-//   )
-// }
-
-// export default Contact4;

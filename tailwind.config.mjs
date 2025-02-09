@@ -1,9 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  mode: 'aot',
+  purge: false,
+
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx,html}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx,html}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx,html}",
   ],
   theme: {
     extend: {
