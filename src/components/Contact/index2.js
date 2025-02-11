@@ -33,7 +33,7 @@ const ContactInfo = () => {
     <section className="min-h-screen px-4 text-[#ed3833] bg-black">
       <div className="flex flex-col lg:flex-row-reverse justify-center items-center min-h-screen gap-0 md:gap-4">
         <div ref={body} className="flex flex-col gap-2 md:gap-2">
-          <div className="flex text-base md:text-[1.5vw] tracking-[0.08em]">
+          <div className="flex text-base md:text-[1.5vw] tracking-[0.08em] pt-5">
             <motion.p custom={1} variants={animation2} initial="initial" animate={isInView ? "enter" : ""} 
             className="font-bold">contact:</motion.p>
           </div>

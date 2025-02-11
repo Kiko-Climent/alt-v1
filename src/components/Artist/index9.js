@@ -8,7 +8,7 @@ import { db } from "@/utils/firebaseConfig";
 import { doc, getDoc } from "firebase/firestore";
 import BookingModal from "../Booking/BookingModal";
 
-const ArtistProfile8 = () => {
+const ArtistProfile9 = () => {
 
   const router = useRouter();
   const [artist, setArtist] = useState(null);
@@ -100,7 +100,7 @@ const ArtistProfile8 = () => {
                 clipPath: showInfo ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)" 
               }}
               transition={{ duration: 0.7, opacity: { duration: 0.5, delay: 0.2 } }} 
-              className="absolute inset-0 bg-black w-full lg:h-full overflow-y-auto lg:w-7/12 lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 flex flex-col justify-center"
+              className="absolute inset-0 bg-black w-full lg:h-full overflow-y-auto lg:w-7/12 lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 flex flex-col justify-around md:justify-center lg:justify-center"
             >
               <motion.p 
               initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
@@ -114,9 +114,9 @@ const ArtistProfile8 = () => {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: showInfo ? 1 : 0, y: showInfo ? 0 : 10 }}
                 transition={{ duration: 0.5, delay: showInfo ? 0.5 : 0 }} 
-                className="flex justify-between text-2xl md:text-4xl font-bold mt-4 leading-7"
+                className="flex flex-row lg:flex-col justify-between lg:justify-center gap-0 lg:gap-3 text-2xl md:text-4xl font-bold mt-4 leading-7"
               >
-                <div className="flex-col">
+                <div className="flex flex-col justify-center lg:flex-row gap-0 lg:gap-3">
                 {artist.social_links &&
                 Object.entries(artist.social_links).map(([platform, link]) =>
                   link ? (
@@ -128,7 +128,7 @@ const ArtistProfile8 = () => {
                   ) : null
                 )}
                 </div>
-                <div className="flex font-bold"
+                <div className="flex font-bold justify-start lg:justify-center"
                   onClick={() => setIsModalOpen(true)}
                 >
                   <p
@@ -151,7 +151,7 @@ const ArtistProfile8 = () => {
             initial={{ clipPath: "inset(0 0 0 100%)", filter: "blur(10px)", opacity: 0 }}
             animate={{ clipPath: "inset(0 0 0 0)", filter: "blur(0px)", opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.9 }}
-            className="flex items-center gap-3"
+            className="flex justify-center items-center gap-2 lg:gap-3"
           >
             <p className="text-[9.0vw] lg:text-7xl font-bold blur-[0.3px] pb-0 lg:pb-2">
               {artist.artist_name}
@@ -182,5 +182,5 @@ const ArtistProfile8 = () => {
   );
 };
 
-export default ArtistProfile8;
+export default ArtistProfile9;
 

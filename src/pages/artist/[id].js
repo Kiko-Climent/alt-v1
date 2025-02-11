@@ -8,6 +8,7 @@
 import ArtistProfile6 from "@/components/Artist/index6"; // *
 import ArtistProfile7 from "@/components/Artist/index7";
 import ArtistProfile8 from "@/components/Artist/index8";
+import ArtistProfile9 from "@/components/Artist/index9";
 // import ArtistProfile2 from "@/components/Artist/index2";
 import PageTransition2 from "@/components/Layout/Page_Transition2";
 
@@ -21,7 +22,7 @@ export default function Artist() {
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
       <PageTransition2>
-        <ArtistProfile8 />
+        <ArtistProfile9 />
       </PageTransition2>
     </>
   )
