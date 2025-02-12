@@ -1,7 +1,6 @@
 {
   "hosting": {
-    "public": "out",
-    
+    "public": ".next",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -9,8 +8,7 @@
     ],
     "rewrites": [
       {
-        "source": "/user/**",
-        "destination": "/artist/[id]/index.html"
+        "source": "**"
       }
     ]
   }

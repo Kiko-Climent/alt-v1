@@ -90,7 +90,7 @@ const Home3 = () => {
       {/* Imagen dinámica al hacer hover */}
       {hoveredElement && (
         <motion.div
-          className="absolute z-0"
+          className="absolute z-0 hidden lg:block"
           style={{
             width: "400px",
             height: "300px",

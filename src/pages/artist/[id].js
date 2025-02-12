@@ -1,18 +1,12 @@
-"use client"
+"use client";
 
-// import ArtistProfile from "@/components/Artist";
-// import ArtistProfile2 from "@/components/Artist/index2"; // *
-// import ArtistProfile3 from "@/components/Artist/index3";
-// import ArtistProfile4 from "@/components/Artist/index4";
-// import ArtistProfile5 from "@/components/Artist/index5";
-import ArtistProfile6 from "@/components/Artist/index6"; // *
-import ArtistProfile7 from "@/components/Artist/index7";
-import ArtistProfile8 from "@/components/Artist/index8";
-import ArtistProfile9 from "@/components/Artist/index9";
-// import ArtistProfile2 from "@/components/Artist/index2";
 import PageTransition2 from "@/components/Layout/Page_Transition2";
+import ArtistProfile10 from "@/components/Artist/index10";
 
-export default function Artist() {
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "@/utils/firebaseConfig";
+
+export default function Artist({ artistData }) {
   return (
     <>
       {/* <Head>
@@ -22,8 +16,30 @@ export default function Artist() {
         <link rel="icon" href="/favicon.ico" />
       </Head> */}
       <PageTransition2>
-        <ArtistProfile9 />
+        <ArtistProfile10 data={artistData}/>
       </PageTransition2>
     </>
   )
+}
+
+export async function getServerSideProps(context) {
+  const { id } = context.params;
+
+  try {
+    const docRef = doc(db, "roster", id);
+    const docSnap = await getDoc(docRef);
+
+    if (!docSnap.exists()) {
+      return { notFound: true };
+    }
+
+    return {
+      props: {
+        artistData: docSnap.data(),
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching artist data:", error);
+    return { notFound: true };
+  }
 }
