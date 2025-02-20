@@ -17,7 +17,7 @@ const BookingModal = ({ embedCode, isOpen, setIsOpen }) => {
 
         {/* Contenedor del Embed */}
         <div className="flex flex-col items-center">
-          <h2 className="text-lg font-bold mb-4">booking@againstlowtrends</h2>
+          <h2 className="text-lg font-bold mb-4">ernesto@againstlt.com</h2>
           <div dangerouslySetInnerHTML={{ __html: embedCode }} />
         </div>
       </div>

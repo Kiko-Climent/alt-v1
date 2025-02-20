@@ -29,12 +29,12 @@ const Statement2 = () => {
   };
 
   return(
-    <section className="min-h-screen md:py-8 px-4 text-[#ed3833] bg-black">
+    <section className="min-h-screen px-4 text-[#ed3833] bg-black">
       <div ref={body} className="flex flex-col min-h-screen justify-center items-center h-full gap-4">
-        <div className="flex flex-col w-full md:w-7/12 font-bold text-justify text-base md:text-[1.5vw] tracking-[0.08em] leading-4 md:leading-5">
+        <div className="flex flex-col w-full md:w-7/12 font-bold text-justify text-base short:text-xs md:text-[1.5vw] tracking-[0.08em] leading-4 md:leading-5">
           <motion.p custom={1} variants={animation2} initial="initial" animate={isInView ? "enter" : ""}
           className="pt-8 lg:pt-0"
-        >about us</motion.p>
+        >about</motion.p>
         <br/>
         <motion.p custom={1} variants={animation} initial="initial" animate={isInView ? "enter" : ""}>
         A.L.T. "Against Low Trends" is a boutique agency with an artistic focus within the electronic music scene.

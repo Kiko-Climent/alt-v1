@@ -1,31 +1,48 @@
+"use client";
+
 import { useEffect } from "react";
 
-const DJBookingForm = () => {
+const BookingFormModal = ({ embedCode, isOpen, setIsOpen }) => {
   useEffect(() => {
-    // Insertar el script solo una vez al montar el componente
-    const script = document.createElement("script");
-    script.src = "https://connect.gigwell.com/roster/loader.js";
-    script.type = "text/javascript";
-    script.crossOrigin = "*";
-    script.async = true;
-    document.body.appendChild(script);
+    if (isOpen) {
+      const scriptId = "gigwell-booking-script";
 
-    // Limpieza del script al desmontar el componente
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+      if (!document.getElementById(scriptId)) {
+        const script = document.createElement("script");
+        script.id = scriptId;
+        script.src = "https://connect.gigwell.com/booknow/booknow.js";
+        script.async = true;
+        script.crossOrigin = "*";
+        document.body.appendChild(script);
+      }
+
+      return () => {
+        const script = document.getElementById(scriptId);
+        if (script) document.body.removeChild(script);
+      };
+    }
+  }, [isOpen]);
+
+  if (!isOpen) return null;
 
   return (
-    <div>
-      <gigwell-embedded-roster
-        agency="778319"
-        artist-id="779343"
-        settings="default"
-        standalone-profile="true"
-      ></gigwell-embedded-roster>
+    <div className="fixed inset-0 flex justify-center items-start bg-black bg-opacity-80 backdrop-blur-md text-[#ed3833] z-50">
+      <div className="relative w-[90%] md:w-[90%] bg-black rounded-lg border-2 border-[#ed3833] overflow-y-auto">
+        <button
+          onClick={() => setIsOpen(false)}
+          className="absolute top-2 right-3 text-xl hover:text-[#ed3833] transition duration-300"
+        >
+          ✕
+        </button>
+
+        <div className="flex flex-col items-center">
+          <h2 className="text-lg font-bold mb-4">booking@againstlowtrends</h2>
+          {/* Aquí se inyecta el código del formulario */}
+          <div dangerouslySetInnerHTML={{ __html: embedCode }} />
+        </div>
+      </div>
     </div>
   );
 };
 
-export default DJBookingForm;
+export default BookingFormModal;

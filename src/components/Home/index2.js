@@ -8,7 +8,7 @@ import Image from "next/image";
 
 const elements = [
   { name: "hermética", image: "/images/IMG-20250115-WA0005.jpg", position: { top: "10%", right: "10%" } },
-  { name: "laia", image: "/images/IMG-20250115-WA0006.jpg", position: { top: "20%", right: "20%" } },
+  { name: "laia", image: "/images/LAIA.jpg", position: { top: "20%", right: "20%" } },
   { name: "montero", image: "/images/IMG-20250115-WA0008.jpg", position: { top: "35%", right: "10%" } },
   { name: "not a headliner", image: "/images/IMG-20250115-WA0005.jpg", position: { bottom: "50%", right: "10%" } },
   { name: "pyramidal decode", image: "/images/IMG-20250115-WA0008.jpg", position: { top: "10%", right: "10%" } },
@@ -58,7 +58,7 @@ const Home3 = () => {
   return (
     <section
       ref={body}
-      className="flex items-center h-screen w-screen bg-black text-white text-[7.7vh] md:text-[8.3vw] uppercase px-4 md:px-2 relative overflow-hidden"
+      className="flex items-center h-screen w-screen bg-black text-white text-[7.7vh] lg:text-[8.3vw] uppercase px-4 lg:px-2 relative overflow-hidden"
     >
       {/* Lista de títulos */}
       <motion.div

@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import BookingModal from "../Booking/BookingModal";
 
 
+
 const ArtistProfile10 = ({data}) => {
 
   const [showInfo, setShowInfo] = useState(false);
@@ -25,7 +26,6 @@ const ArtistProfile10 = ({data}) => {
       };
     }
   }, [isModalOpen, data]);
-
 
   return (
     <motion.section 

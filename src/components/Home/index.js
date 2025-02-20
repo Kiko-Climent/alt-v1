@@ -42,7 +42,7 @@ const Home4 = () => {
           fetchedElements.push({
             id: doc.id,
             name: data.artist_name,
-            image: data.artist_img || "/images/IMG-20250115-WA0008.jpg", // Fallback si no hay imagen
+            image: data.artist_img || "/images/MONTERO_2.jpg", // Fallback si no hay imagen
             position: data.position || { top: "10%", right: "10%" }, // Actualiza según tus necesidades
           });
         });
@@ -82,7 +82,7 @@ const Home4 = () => {
   return (
     <section
       ref={body}
-      className="flex items-center justify-center md:justify-start min-h-screen w-screen bg-black text-white text-[7.7vh] md:text-[8.3vw] uppercase px-4 md:px-2 pt-4 relative"
+      className="flex items-center justify-center md:justify-start min-h-screen w-screen bg-black text-white text-[7.7vh] md:text-[8.3vw] uppercase px-4 lg:px-2 pt-4 relative"
     >
       {/* Lista de títulos */}
       <motion.div

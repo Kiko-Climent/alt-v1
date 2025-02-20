@@ -20,6 +20,9 @@ export default {
         semibold: 600, // Puedes usar Medium en lugar de SemiBold si decides eso
         bold: 700, // Bold o Mono Bold
       },
+      screens: {
+        'short': { 'raw': '(max-height: 568px)' },
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

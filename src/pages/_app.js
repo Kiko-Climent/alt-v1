@@ -1,6 +1,4 @@
-// import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import Header2 from "@/components/Header2";
 import "@/styles/globals.css";
 import "@/components/Layout/Page_Transition2/styles.scss";
 import { AnimatePresence } from "framer";
@@ -14,12 +12,11 @@ export default function App({ Component, pageProps, router }) {
   return (
         <Provider store={store}>
           <div>
-              {/* Mostrar Header y Footer solo si no estamos en el Splash */}
+              {/* Mostrar Header solo si no estamos en el Splash */}
               {!isSplashPage && <Header />}
               <AnimatePresence mode="wait">
                 <Component key={router.route} {...pageProps} />
               </AnimatePresence>
-              {/* {!isSplashPage && <Footer />} */}
           </div>
         </Provider>
   );

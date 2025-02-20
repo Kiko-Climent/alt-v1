@@ -19,9 +19,13 @@ const ArtistList = () => {
         <li key={artist.id}>
           <h2>{artist.artist_name}</h2>
           <p>{artist.artist_bio}</p>
+          <p>{artist.booking_embed}</p>
+          <p>{artist.social_link}</p>
+          <p>{artist.profile_pic}</p>
         </li>
       ))}
     </ul>
+    
   );
 };
 
