@@ -71,3 +71,7 @@ html, body {
 .mono-bold {
   font-family: 'PPNeueMontrealMono Bold', monospace;
 }
+
+.text-active {
+  color: #ed3833 !important;
+}

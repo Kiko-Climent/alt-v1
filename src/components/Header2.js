@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { IoIosArrowBack } from "react-icons/io";
 
 const Header2 = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <div className="flex justify-between tracking-widest px-4 py-2 bg-black text-white text-xs md:text-[13px] fixed w-full z-50">
@@ -28,8 +30,8 @@ const Header2 = () => {
         <div className={`font-bold flex gap-2 bg-black px-4 py-2 transition-all duration-300 overflow-hidden absolute top-0 h-full items-center ${
           menuOpen ? "right-8 opacity-100" : "right-[-200px] opacity-0"
         }`}>
-          <Link href="/about" className="hover:text-[#ed3833]">about,</Link>
-          <Link href="/contact" className="hover:text-[#ed3833]">contact,</Link>
+          <Link href="/about" className={`${pathname === "/about" ? "text-[#ed3833]" : ""} hover:text-[#ed3833]`}>about,</Link>
+          <Link href="/contact" className={`${pathname === "/contact" ? "text-[#ed3833]" : ""} hover:text-[#ed3833]`}>contact,</Link>
           <Link href="/contact" className="hover:text-[#ed3833]">IG</Link>
         </div>
       </div>

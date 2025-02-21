@@ -119,6 +119,7 @@ const Home5 = () => {
             animate={isInView ? "enter" : ""}
           >
             <motion.h1
+              translate="no"
               className="flex transition-colors duration-300 hover:font-bold cursor-pointer"
               style={{
                 opacity:
@@ -173,7 +174,7 @@ const Home5 = () => {
             height={600} // Ajusta la altura a un valor que unifique el formato
             style={{ 
               objectFit: "cover", 
-              aspectRatio: "5 / 6", // Relación personalizada
+              aspectRatio: "4 / 5", // Relación personalizada
             }}
             priority
             loading="eager"

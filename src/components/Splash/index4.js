@@ -9,16 +9,18 @@ const images = [
   "/images/NOT A HEAD LINER.webp",
   "/images/MANU.webp",
   "/images/TAKT.webp",
-  "/images/LUCIA.webp",
+  "/images/LUCIA_BW.webp",
   "/images/MONTERO.webp",
-  "/images/LAIA.webp",
+  "/images/LAIA_BW.webp",
 ];
 
+const shuffleArray = (array) => [...array].sort(() => Math.random() - 0.5);
 const logo = "/images/ALT_Alta_Logo_blanco.png";
 
 const isMobile = () => typeof window !== "undefined" && window.innerWidth < 768;
 
 const Splash4 = () => {
+  const [shuffledImages, setShuffledImages] = useState([]);
   const [mobile, setMobile] = useState(false);
   const [currentImage, setCurrentImage] = useState(0);
   const [isRevealed, setIsRevealed] = useState(false);
@@ -27,6 +29,8 @@ const Splash4 = () => {
 
   useEffect(() => {
     setMobile(isMobile());
+
+    setShuffledImages(shuffleArray(images));
 
     // Simulación de carga de imágenes
     const preloadImages = (imageArray) => {
@@ -51,17 +55,14 @@ const Splash4 = () => {
       const interval = setInterval(() => {
         setCurrentImage(index);
         index++;
-        if (index === images.length) {
+        if (index === shuffledImages.length) {
           clearInterval(interval);
           setIsFinished(true); // Marcar como terminado cuando llegue a la última imagen
         }
-    }, 150);
-
-      
-
+    }, 170);  
       return () => clearInterval(interval);
     }
-  }, [isRevealed]);
+  }, [isRevealed, shuffledImages]);
 
   return (
     <motion.section
@@ -105,9 +106,9 @@ const Splash4 = () => {
       >
         {isLoaded && (
           <Image
-            src={images[currentImage]}
+            src={shuffledImages[currentImage]}
             alt="roster"
-            className="w-full max-h-screen aspect-[4/5] object-contain"
+            className="w-full h-full aspect-[4/5] object-cover"
             width="500"
             height="500"
             loading="eager"

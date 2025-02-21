@@ -4,7 +4,6 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import PageTransition2 from "@/components/Layout/Page_Transition2";
 import Home5 from "@/components/Home/index3";
-import Home6 from "@/components/Home/index4";
 
 
 export default function HomePage () {
@@ -23,6 +22,7 @@ export default function HomePage () {
         <title>Against Low Trends</title>
         <meta name="description" content="Booking Agency" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="google" content="notranslate" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
     {showTransition ? (
