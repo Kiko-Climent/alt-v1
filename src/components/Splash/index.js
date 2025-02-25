@@ -89,7 +89,7 @@ const Splash = () => {
           className="flex h-7/12 md:h-full w-7/12 justify-center items-center"
         >
           <Image
-            src="/images/ALT_Alta_Logo_blanco.png"
+            src="/images/ALT_Alta_Logo_blanco.webp"
             width={400}
             height={400}
             style={{

@@ -65,7 +65,7 @@ const ArtistProfile11 = ({data}) => {
             filter: showInfo ? "blur(10px)" : "blur(0.7px)",
         }}
         transition={{ duration: 0.75 }}
-        className="absolute top-1/2 -translate-y-1/2 w-full text-[9.0vw] font-bold text-center z-0 tracking-tight lg:tracking-normal">
+        className="absolute top-1/2 -translate-y-1/2 w-full text-[9.0vw] font-bold text-center z-0 tracking-tight lg:tracking-normal whitespace-nowrap">
         AGAINST LOW TRENDS
       </motion.p>
 
@@ -78,6 +78,10 @@ const ArtistProfile11 = ({data}) => {
         <div className="w-[90%] md:w-4/5 lg:w-1/3">
           <motion.img
             src={profilePicUrl}
+            style={{ 
+
+              objectPosition: data.pic_object_position,
+            }}
             className="w-full min-h-[65vh] aspect-[4/5] object-cover lg:object-cover cursor-pointer"
             onClick={() => setShowInfo(!showInfo)}
             animate={{ opacity: showInfo ? 0 : 1 }}
@@ -93,14 +97,14 @@ const ArtistProfile11 = ({data}) => {
             clipPath: showInfo ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)" 
           }}
           transition={{ duration: 0.7, opacity: { duration: 0.5, delay: 0.2 } }} 
-          className="absolute inset-0 bg-black lg:h-full overflow-y-auto w-full md:w-7/12 lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 flex flex-col justify-center short:justify-start lg:justify-center"
+          className="absolute inset-0 bg-black lg:h-full overflow-y-auto w-full lg:w-7/12 lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 flex flex-col justify-center lg:justify-center"
         >
           <motion.p 
           initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
           animate={{ opacity: showInfo ? 1 : 0, y: showInfo ? 0 : 10, filter: "blur(0px)" }}
           transition={{ duration: 0.5, delay: showInfo ? 0.3 : 0 }}
-          className="cursor-pointer text-base short:text-xs md:text-xl lg:text-[1.40rem] 2xl:text-[1.7rem] leading-[1.15rem] lg:leading-6 tracking-tighter md:tracking-normal font-bold text-justify">
-            {data.artist_name} <span className="font-normal" onClick={() => setShowInfo(!showInfo)}>{data.artist_bio}</span>
+          className="cursor-pointer text-base short:text-xs md:text-xl lg:text-[1.40rem] 2xl:text-[1.7rem] leading-[1.15rem] lg:leading-6 tracking-normal md:tracking-normal font-bold text-justify">
+            {data.artist_name}<span className="font-normal" onClick={() => setShowInfo(!showInfo)}>{data.artist_bio}</span>
           </motion.p>
 
           <motion.div
@@ -108,9 +112,9 @@ const ArtistProfile11 = ({data}) => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: showInfo ? 1 : 0, y: showInfo ? 0 : 10 }}
             transition={{ duration: 0.5, delay: showInfo ? 0.5 : 0 }} 
-            className="flex flex-row lg:flex-col justify-between lg:justify-center gap-0 text-2xl md:text-3xl lg:text-4xl font-bold mt-2 md:mt-4 leading-6 md:leading-7"
+            className="flex flex-row lg:flex-col justify-between lg:justify-center gap-0 text-2xl md:text-3xl lg:text-4xl font-bold mt-3 md:mt-4 leading-6 md:leading-7"
           >
-            <div className="flex flex-col lg:flex-row justify-center gap-0 lg:gap-3">
+            <div className="flex flex-col lg:flex-row justify-center gap-1 lg:gap-3">
             {data.social_links &&
             Object.entries(data.social_links).map(([platform, link]) =>
               link ? (

@@ -3,8 +3,8 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 
+import Splash5 from "@/components/Splash/index5";
 
-import Splash4 from "@/components/Splash/index4";
 
 export default function SplashPage() {
   const router = useRouter();
@@ -19,6 +19,6 @@ export default function SplashPage() {
     return () => clearTimeout(timer); // Limpiar el temporizador al desmontar
   }, [router]);
 
-  return <Splash4 />;
+  return <Splash5 />;
 }
 

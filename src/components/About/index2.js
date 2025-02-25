@@ -37,23 +37,23 @@ const Statement2 = () => {
         >about</motion.p>
         <br/> */}
         <motion.p custom={1} variants={animation} initial="initial" animate={isInView ? "enter" : ""}>
-        A.L.T. "Against Low Trends" is a boutique agency with an artistic focus within the electronic music scene.
-        Our purpose is to break away from fleeting commercial trends and focus on what truly matters: art, innovation, 
-        and a deep connection with the audience. We believe in quality over quantity.<br/><br/>
-        We work exclusively with a small, select group of artists who share our vision and are committed to elevating their artistic profile to new heights.
+        Against Low Trends curates and develops electronic music proposals where artists
+        and promoters meet on common ground.<br/><br/>
+        We connect artists with the right spaces.
         <br/><br/>
-        Our mission is clear: to provide our artists with a solid platform to grow, create, and express themselves by generating opportunities in clubs and festivals that value the genuine essence of electronic music.
+        The focus is on meaningful work, not mass appeal.
         <br/><br/>
-
-        We partner with spaces and events that appreciate authenticity and artistic risk.
-        A.L.T. is not just an agency; it’s a movement that celebrates diversity, originality, and boldness.
+        Artists who share our vision find the space and support to develop their work freely.
+        <br/><br/>
+        More than representation, it’s about creating the right conditions for artists to grow
+        on their own terms.
           </motion.p>
 
         </div>
         <motion.div variants={animationImage}
           initial="initial"
           animate={isInView ? "enter" : ""} className="flex w-full md:w-7/12 justify-end items-end ">
-           <img src="/images/AgainstLT_Blanco.png"
+           <img src="/images/ALT_Alta_Logo_blanco.png"
                className="w-[50%] md:w-[30%] h-auto object-contain"
            />
         </motion.div>

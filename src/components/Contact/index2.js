@@ -14,11 +14,11 @@ const ContactInfo = () => {
 
   }
 
-  const animation2 = {
-    initial: {y: "-50%", opacity: 0}, 
-    enter: {y: "0", opacity: 1, transition: {duration: 0.75, ease: [0.33, 1, 0.68, 1],  delay: 0.7}}
+  // const animation2 = {
+  //   initial: {y: "-50%", opacity: 0}, 
+  //   enter: {y: "0", opacity: 1, transition: {duration: 0.75, ease: [0.33, 1, 0.68, 1],  delay: 0.7}}
 
-  }
+  // }
 
   const animationImage = {
     initial: { opacity: 0 },

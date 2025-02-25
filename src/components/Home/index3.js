@@ -59,6 +59,7 @@ const Home5 = () => {
             name: data.artist_name,
             image: imageUrl,
             position: data.position || { top: "10%", right: "10%" },
+            pic_object_position: data.pic_object_position || "center center",
           };
         });
   
@@ -100,7 +101,7 @@ const Home5 = () => {
   return (
     <section
       ref={body}
-      className="flex items-center justify-center md:justify-start min-h-screen w-screen bg-black text-white text-[7.7vh] md:text-[8.3vw] uppercase px-4 md:px-2 pt-4 relative"
+      className="flex items-center justify-center md:justify-start min-h-screen w-screen bg-black text-white text-[7.7vh] md:text-[8.3vw] uppercase px-4 md:px-2 md:pt-8 relative"
     >
       {/* Lista de títulos */}
       <motion.div
@@ -175,6 +176,7 @@ const Home5 = () => {
             style={{ 
               objectFit: "cover", 
               aspectRatio: "4 / 5", // Relación personalizada
+              objectPosition: hoveredArtist.pic_object_position,
             }}
             priority
             loading="eager"

@@ -21,7 +21,7 @@ export default {
         bold: 700, // Bold o Mono Bold
       },
       screens: {
-        'short': { 'raw': '(max-height: 568px)' },
+        'short': { 'raw': '(max-height: 660px)' },
       },
       colors: {
         background: "var(--background)",
