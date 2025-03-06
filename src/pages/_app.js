@@ -13,7 +13,7 @@ export default function App({ Component, pageProps, router }) {
         <Provider store={store}>
           <div>
               {/* Mostrar Header solo si no estamos en el Splash */}
-              {!isSplashPage && <Header />}
+              {!isSplashPage && <Header/>}
               <AnimatePresence mode="wait">
                 <Component key={router.route} {...pageProps} />
               </AnimatePresence>

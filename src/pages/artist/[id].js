@@ -1,24 +1,25 @@
 import Head from "next/head";
 
 import PageTransition2 from "@/components/Layout/Page_Transition2";
-// import ArtistProfile11 from "@/components/Artist/index11";
-
 
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/utils/firebaseConfig";
 import ArtistProfile11 from "@/components/Artist/index11";
+import ArtistProfile14 from "@/components/Artist/index14";
+import ArtistProfile15 from "@/components/Artist/index15";
+import ArtistProfile16 from "@/components/Artist/index16";
 
 export default function Artist({ artistData }) {
   return (
     <>
       <Head>
-        <title>Artists | Against Low Trends</title>
+        <title>{artistData.artist_name} | Against Low Trends</title>
         <meta name="description" content="Dj booking agency based in Madrid" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PageTransition2>
-        <ArtistProfile11 data={artistData}/>
+        <ArtistProfile16 data={artistData}/>
       </PageTransition2>
     </>
   )

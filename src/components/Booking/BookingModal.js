@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
 
 const BookingModal = ({ embedCode, isOpen, setIsOpen }) => {
   if (!isOpen) return null;
@@ -17,7 +15,7 @@ const BookingModal = ({ embedCode, isOpen, setIsOpen }) => {
 
         {/* Contenedor del Embed */}
         <div className="flex flex-col items-center">
-          <h2 className="text-lg font-bold mb-4">ernesto@againstlt.com</h2>
+          <a href="mailto:ernesto@againstlt.com" className="text-lg font-bold mb-4">ernesto@againstlt.com</a>
           <div dangerouslySetInnerHTML={{ __html: embedCode }} />
         </div>
       </div>

@@ -56,16 +56,33 @@ const ContactInfo = () => {
             </div>
             <div className="flex flex-col text-base short:text-xs md:text-xl lg:text-[1.40rem] 2xl:text-[1.7rem] tracking-[0.08rem] leading-4 md:leading-5 lg:leading-6 2xl:leading-7">
               <p>press enquires</p>
-              <a href="mailto:ernesto@againstlt.com" className="text-2xl short:text-xl md:text-4xl 2xl:text-5xl font-bold">manu@againstlt.com</a>
+              <a href="mailto:manu@againstlt.com" className="text-2xl short:text-xl md:text-4xl 2xl:text-5xl font-bold">manu@againstlt.com</a>
             </div>
             <div className="flex flex-col text-base short:text-xs md:text-xl lg:text-[1.40rem] 2xl:text-[1.7rem] tracking-[0.08rem] leading-4 md:leading-5 lg:leading-6 2xl:leading-7">
               <p>all other inquires</p>
-              <a href="mailto:ernesto@againstlt.com" className="text-2xl short:text-xl md:text-4xl 2xl:text-5xl font-bold">info@againstlt.com</a>
+              <a href="mailto:info@againstlt.com" className="text-2xl short:text-xl md:text-4xl 2xl:text-5xl font-bold">info@againstlt.com</a>
             </div>
-            {/* <div className="flex flex-col text-base short:text-xs md:text-[1.5vw] tracking-[0.08em] leading-[0.7rem] md:leading-none">
-              <p>booking forms</p>
-              <p className="text-2xl short:text-xl md:text-4xl font-bold">@booking</p>
-            </div> */}
+            <footer className="flex flex-col text-xs">
+              <p>2025 @ Against Low Trends.</p>
+              <p>All Rights Reserved.</p>
+              <div className="flex gap-2">
+                <a href="https://www.iubenda.com/privacy-policy/94398197" 
+                  className="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="Privacy Policy">
+                  Privacy Policy
+                </a>
+                |
+                <a href="https://www.iubenda.com/privacy-policy/94398197/cookie-policy"
+                  className="iubenda-black iubenda-noiframe iubenda-embed iubenda-noiframe"
+                  target="_blank"
+                  rel="noopener noreferrer" 
+                  title="Cookie Policy">
+                  Cookies
+                </a>
+              </div>
+            </footer>
           </motion.div>
         </div>
         <motion.div variants={animationImage}

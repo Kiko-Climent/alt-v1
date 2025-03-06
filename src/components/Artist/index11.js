@@ -78,7 +78,7 @@ const ArtistProfile11 = ({data}) => {
         <div className="w-[90%] md:w-4/5 lg:w-1/3">
           <motion.img
             src={profilePicUrl}
-            style={{ 
+            style={{
 
               objectPosition: data.pic_object_position,
             }}
@@ -137,6 +137,13 @@ const ArtistProfile11 = ({data}) => {
                 booking
               </p>
             </div>
+            {/* <div className="flex font-bold justify-start lg:justify-center">
+              <a href={`/booking/${data.id}`} className="font-bold cursor-pointer gap-2">
+                <span className="transform transition-transform duration-300 group-hover:rotate-45">↗ </span>
+                booking
+              </a>
+            </div> */}
+
           </motion.div>
           
         </motion.div>
