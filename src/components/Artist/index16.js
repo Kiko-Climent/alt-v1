@@ -9,9 +9,6 @@ import BookingModal from "../Booking/BookingModal";
 import { ref, getDownloadURL } from "firebase/storage";
 import { storage } from "@/utils/firebaseConfig";
 
-const bio = "NOT A HEADLINER rejects the ego-driven culture of electronic music, focusing instead on the dancefloor as a space for collective energy and shared experiences. Sets transcend genres, blending house, electro, techno, and their derivatives into fluid and dynamic journeys. Releases reflect the same ethos: adaptable, imaginative, and always grounded in a clear artistic vision. With a foundation in Global Offensive Corporation, the project questions the commodification of club culture through a direct and uncompromising approach."
-const projects = "GLOBOFFCORP (Global Offensive Corporation) is a creative space where the artist explores music freely without constraints. With its own identity and a strong conceptual foundation, this project is a natural extension of his artistic vision."
-const alt = "Being part of ALT reinforces my critical stance towards the electronic music scene. Against Low Trends is not just an agency. It is a platform where artistic projects are nurtured rather than exploited. It stands against the extreme commodification of electronic music and prioritizes authenticity over mass appeal."
 
 const ArtistProfile16 = ({data}) => {
 
@@ -21,7 +18,6 @@ const ArtistProfile16 = ({data}) => {
   const [selectedSection, setSelectedSection] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
-
   const [profilePicUrl, setProfilePicUrl] = useState("");
 
   useEffect(() => {
@@ -60,7 +56,7 @@ const ArtistProfile16 = ({data}) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.75 }}
-      className="min-h-screen w-screen px-2 short:px-2 md:px-4 text-[#ed3833] bg-black flex flex-col justify-center lg:justify-center items-center">
+      className="min-h-screen w-screen pt-8 px-2 short:px-2 md:px-4 text-[#ed3833] bg-black flex flex-col justify-center lg:justify-center items-center">
       
       {/* AGAINST LOW TRENDS BACKGROUND */}
       <motion.p
@@ -106,7 +102,10 @@ const ArtistProfile16 = ({data}) => {
             clipPath: showInfo ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)" 
           }}
           transition={{ duration: 0.7, opacity: { duration: 0.5, delay: 0.2 } }} 
-          className="absolute inset-0 bg-black lg:h-full overflow-y-auto w-full lg:w-8/12 lg:left-1/2 lg:top-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 flex flex-col justify-center lg:justify-evenly"
+          className={`absolute inset-0 bg-black lg:h-full overflow-y-auto w-full lg:w-8/12 lg:left-1/2 lg:top-1/2 
+            lg:-translate-x-1/2 lg:-translate-y-1/2 flex flex-col 
+            ${selectedSection === "bio" ? "justify-start" : "justify-center"} 
+            lg:justify-evenly`}
         >
           {/* fondo rojo emergente */}
           <motion.div
@@ -130,7 +129,29 @@ const ArtistProfile16 = ({data}) => {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="relative px-1 font-bold text-center text-xs md:text-xl lg:text-[1.40rem] bg-[#ed3833] text-black"
           >
-            {selectedSection === 'bio' && <p>{bio}<br /><br /><span className="italic">"{alt}"</span></p>}
+            {selectedSection === "bio" && (
+              <div>
+                {Array.isArray(data.artist_bio) ? (
+                  data.artist_bio.map((paragraph, index) => (
+                    <p key={index} className="mb-2">{paragraph}</p> // "mb-4" para dar espacio entre párrafos
+                  ))
+                ) : (
+                  <p>{data.artist_bio}</p> // Si por alguna razón viene como string, lo mostramos normal
+                )}
+                <span className="italic">"{data.artist_and_alt}"</span>
+              </div>
+            )}
+            {selectedSection === "in detail" && (
+              <div>
+                {Array.isArray(data.artist_detail) ? (
+                  data.artist_detail.map((paragraph, index) => (
+                    <p key={index} className="mb-2">{paragraph}</p> // "mb-4" para dar espacio entre párrafos
+                  ))
+                ) : (
+                  <p>{data.artist_detail}</p> // Si por alguna razón viene como string, lo mostramos normal
+                )}
+              </div>
+            )}
             {selectedSection === 'works' && <p>WORKS LIST</p>}
             {selectedSection === 'social media' && (
               <div className="flex flex-col items-center">
@@ -141,7 +162,7 @@ const ArtistProfile16 = ({data}) => {
                 ))}
               </div>
             )}
-            {selectedSection === 'projects' && <p>{projects}</p>}
+            {selectedSection === 'wroks' && <p>{data.works}</p>}
           </motion.p>
           {/* Botón de cierre */}
           <motion.div
@@ -165,7 +186,7 @@ const ArtistProfile16 = ({data}) => {
         </motion.div>
       </motion.div>
       {/* artist name div */}
-      <div className="flex flex-col pt-2">
+      <div className="flex flex-col pt-0 md:pt-2">
         <motion.div 
           initial={{ clipPath: "inset(0 0 0 100%)", filter: "blur(10px)", opacity: 0 }}
           animate={{ clipPath: "inset(0 0 0 0)", filter: "blur(0px)", opacity: 1 }}
@@ -175,6 +196,7 @@ const ArtistProfile16 = ({data}) => {
           <p 
             translate="no"
             className="text-[9.0vw] lg:text-7xl font-bold blur-[0.3px] pb-0 uppercase"
+            // className="text-[min(8.0vw,120px)] font-bold blur-[0.3px] pb-0 uppercase"
           >
             {data.artist_name}
           </p>
@@ -183,7 +205,7 @@ const ArtistProfile16 = ({data}) => {
             initial={{ filter: "blur(10px)", opacity: 0 }}
             animate={{ filter: "blur(0px)", opacity: 1 }}
             transition={{ duration: 0.95, delay: 0.6 }}
-            className="text-3xl lg:text-4xl font-bold cursor-pointer"
+            className="text-4xl lg:text-5xl font-bold cursor-pointer"
             onClick={() => setShowLinks(!showLinks)}
             style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
           >
@@ -199,14 +221,14 @@ const ArtistProfile16 = ({data}) => {
         </motion.div>
 
         {/* Contenedor para que los textos no cambien el layout */}
-        <div className="relative h-[2.5rem] lg:h-[3rem] flex justify-center items-center whitespace-nowrap">
+        <div className="relative h-[1.8rem] md:h-[2.5rem] lg:h-[3rem]  flex justify-center items-center whitespace-nowrap">
           <motion.p
             initial={{ opacity: 0, rotateX: 0 }}
             animate={{ opacity: showLinks ? 0 : 1, rotateX: showLinks ? -90 : 0 }}
             transition={{ duration: 0.8 }}
             className="absolute text-white font-bold text-lg lg:text-2xl italic text-center"
           >
-            “Question the scene, don’t fit into it."
+            “{data.artist_quote}"
           </motion.p>
 
           <motion.p
@@ -216,8 +238,8 @@ const ArtistProfile16 = ({data}) => {
             className="absolute font-bold justify-center text-2xl md:text-3xl lg:text-4xl"
           >
             <span onClick={() => { setShowInfo(true); setSelectedSection('bio'); }} className="cursor-pointer hover:text-white">bio</span> |  
-            <span onClick={() => { setShowInfo(true); setSelectedSection('works'); }} className="cursor-pointer hover:text-white"> works</span> | 
-            <span onClick={() => { setShowInfo(true); setSelectedSection('projects'); }} className="cursor-pointer hover:text-white"> projects</span> |
+            <span onClick={() => { setShowInfo(true); setSelectedSection('in detail'); }} className="cursor-pointer hover:text-white"> in detail</span> | 
+            <span onClick={() => { setShowInfo(true); setSelectedSection('works'); }} className="cursor-pointer hover:text-white"> works</span> |
             <span onClick={() => { setShowInfo(true); setSelectedSection('social media'); }} className="cursor-pointer hover:text-white"> sm</span> 
           </motion.p>
         </div>
