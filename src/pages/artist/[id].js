@@ -13,7 +13,7 @@ export default function Artist({ artistData }) {
   return (
     <>
       <Head>
-        <title>{artistData.artist_name} | Against Low Trends</title>
+        <title>{artistData.artist_name_head}</title>
         <meta name="description" content="Dj booking agency based in Madrid" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />

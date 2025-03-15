@@ -35,6 +35,7 @@ const Header = () => {
       <motion.div custom={1} variants={animation_header2} initial="initial" animate={isInView ? "enter" : ""} 
       className="flex font-bold gap-1">
         <Link href="/about" className={`${pathname === "/about" ? "text-active" : ""} hover:text-[#ed3833]`}>about,</Link>
+        {/* <Link href="/about" className={`${pathname === "/about" ? "text-active" : ""} hover:text-black hover:bg-[#ed3833]`}>about,</Link> */}
         <Link href="/contact" className={`${pathname === "/contact" ? "text-active" : ""} hover:text-[#ed3833]`}>contact,</Link>
         <a href="https://www.instagram.com/againstlowtrends/" target="_blank" rel="noopener noreferrer" className="flex hover:text-[#ed3833]">ig</a>
 

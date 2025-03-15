@@ -19,6 +19,12 @@ const ArtistProfile16 = ({data}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [hovered, setHovered] = useState(false);
   const [profilePicUrl, setProfilePicUrl] = useState("");
+  const [clickedSection, setClickedSection] = useState(null);
+
+  useEffect(() => {
+    if (showInfo) setHovered(false);
+  }, [showInfo]);
+
 
   useEffect(() => {
     if (data?.profile_pic) {
@@ -56,7 +62,7 @@ const ArtistProfile16 = ({data}) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.75 }}
-      className="min-h-screen w-screen pt-8 px-2 short:px-2 md:px-4 text-[#ed3833] bg-black flex flex-col justify-center lg:justify-center items-center">
+      className="min-h-screen w-screen short:pt-6 pt-0 md:pt-8 px-2 short:px-2 md:px-4 text-[#ed3833] bg-black flex flex-col justify-center lg:justify-center items-center">
       
       {/* AGAINST LOW TRENDS BACKGROUND */}
       <motion.p
@@ -87,7 +93,7 @@ const ArtistProfile16 = ({data}) => {
 
               objectPosition: data.pic_object_position,
             }}
-            className="w-full min-h-[65vh] aspect-[4/5] object-cover cursor-pointer"
+            className="w-full min-h-[60vh] aspect-[4/5] object-cover cursor-pointer"
             
             animate={{ opacity: showInfo ? 0 : 1 }}
             transition={{ duration: 0.3, delay: showInfo ? 0.5 : 0 }}
@@ -104,8 +110,8 @@ const ArtistProfile16 = ({data}) => {
           transition={{ duration: 0.7, opacity: { duration: 0.5, delay: 0.2 } }} 
           className={`absolute inset-0 bg-black lg:h-full overflow-y-auto w-full lg:w-8/12 lg:left-1/2 lg:top-1/2 
             lg:-translate-x-1/2 lg:-translate-y-1/2 flex flex-col 
-            ${selectedSection === "bio" ? "justify-start" : "justify-center"} 
-            lg:justify-evenly`}
+            ${["bio", "in detail"].includes(selectedSection) ? "justify-start" : "justify-center"}
+            lg:justify-between`}
         >
           {/* fondo rojo emergente */}
           <motion.div
@@ -123,11 +129,11 @@ const ArtistProfile16 = ({data}) => {
           >
             {selectedSection && <p>| {selectedSection} |</p>}
           </motion.div>
-          <motion.p 
+          <motion.div 
             initial={{ opacity: 0, y: 10, filter: "blur(10px)" }}
             animate={{ opacity: showInfo ? 1 : 0, y: showInfo ? 0 : 10, filter: "blur(0px)" }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="relative px-1 font-bold text-center text-xs md:text-xl lg:text-[1.40rem] bg-[#ed3833] text-black"
+            className="relative px-1 font-bold text-center text-sm md:text-xl lg:text-[1.40rem] bg-[#ed3833] text-black"
           >
             {selectedSection === "bio" && (
               <div>
@@ -152,7 +158,15 @@ const ArtistProfile16 = ({data}) => {
                 )}
               </div>
             )}
-            {selectedSection === 'works' && <p>WORKS LIST</p>}
+            {selectedSection === 'works' && (
+              <div className="flex flex-col items-center">
+                {data.social_links && Object.entries(data.artist_works).map(([platform, link]) => link && (
+                  <p key={platform} className="flex font-bold text-2xl md:text-3xl lg:text-4xl">
+                    <a href={link} target="_blank" rel="noopener noreferrer">{platform}</a>
+                  </p>
+                ))}
+              </div>
+            )}
             {selectedSection === 'social media' && (
               <div className="flex flex-col items-center">
                 {data.social_links && Object.entries(data.social_links).map(([platform, link]) => link && (
@@ -162,8 +176,8 @@ const ArtistProfile16 = ({data}) => {
                 ))}
               </div>
             )}
-            {selectedSection === 'wroks' && <p>{data.works}</p>}
-          </motion.p>
+            {selectedSection === 'works' && <p>{data.works}</p>}
+          </motion.div>
           {/* Botón de cierre */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -178,7 +192,9 @@ const ArtistProfile16 = ({data}) => {
                 onMouseLeave={() => setHovered(false)} 
                 className="bg-[#ed3833] text-black text-xl md:text-4xl text-center w-full"
               >
-                {hovered ? "close" : "x"}
+                <span className={`transition-all duration-300 ease-in-out ${hovered ? 'scale-90 text-white' : 'scale-100 text-black'}`}>
+                  {hovered ? "close" : "x"}
+                </span>
               </button>
             )}
           </motion.div>
@@ -186,7 +202,7 @@ const ArtistProfile16 = ({data}) => {
         </motion.div>
       </motion.div>
       {/* artist name div */}
-      <div className="flex flex-col pt-0 md:pt-2">
+      <div className="flex flex-col pt-0 md:pt-2 w-full">
         <motion.div 
           initial={{ clipPath: "inset(0 0 0 100%)", filter: "blur(10px)", opacity: 0 }}
           animate={{ clipPath: "inset(0 0 0 0)", filter: "blur(0px)", opacity: 1 }}
@@ -195,8 +211,8 @@ const ArtistProfile16 = ({data}) => {
         >
           <p 
             translate="no"
-            className="text-[9.0vw] lg:text-7xl font-bold blur-[0.3px] pb-0 uppercase"
-            // className="text-[min(8.0vw,120px)] font-bold blur-[0.3px] pb-0 uppercase"
+            className="text-[8.5vw] lg:text-7xl font-bold blur-[0.3px] pb-0 uppercase "
+            // className="text-[min(9.0vw,120px)] font-bold blur-[0.3px] pb-0 uppercase"
           >
             {data.artist_name}
           </p>
@@ -205,7 +221,7 @@ const ArtistProfile16 = ({data}) => {
             initial={{ filter: "blur(10px)", opacity: 0 }}
             animate={{ filter: "blur(0px)", opacity: 1 }}
             transition={{ duration: 0.95, delay: 0.6 }}
-            className="text-4xl lg:text-5xl font-bold cursor-pointer"
+            className="text-4xl lg:text-5xl font-bold cursor-pointer "
             onClick={() => setShowLinks(!showLinks)}
             style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
           >
@@ -221,12 +237,12 @@ const ArtistProfile16 = ({data}) => {
         </motion.div>
 
         {/* Contenedor para que los textos no cambien el layout */}
-        <div className="relative h-[1.8rem] md:h-[2.5rem] lg:h-[3rem]  flex justify-center items-center whitespace-nowrap">
+        <div className="relative h-[1.8rem] md:h-[2.5rem] lg:h-[3rem] flex justify-center items-center">
           <motion.p
             initial={{ opacity: 0, rotateX: 0 }}
             animate={{ opacity: showLinks ? 0 : 1, rotateX: showLinks ? -90 : 0 }}
             transition={{ duration: 0.8 }}
-            className="absolute text-white font-bold text-lg lg:text-2xl italic text-center"
+            className="absolute text-white font-bold text-sm md:text-2xl leading-4 italic text-center md:whitespace-nowrap"
           >
             “{data.artist_quote}"
           </motion.p>
@@ -235,16 +251,16 @@ const ArtistProfile16 = ({data}) => {
             initial={{ opacity: 0, rotateX: 90 }}
             animate={{ opacity: showLinks ? 1 : 0, rotateX: showLinks ? 0 : 90 }}
             transition={{ duration: 0.8 }}
-            className="absolute font-bold justify-center text-2xl md:text-3xl lg:text-4xl"
+            className="absolute font-bold justify-center short:text-xl text-2xl md:text-3xl lg:text-4xl whitespace-nowrap"
           >
             <span onClick={() => { setShowInfo(true); setSelectedSection('bio'); }} className="cursor-pointer hover:text-white">bio</span> |  
             <span onClick={() => { setShowInfo(true); setSelectedSection('in detail'); }} className="cursor-pointer hover:text-white"> in detail</span> | 
             <span onClick={() => { setShowInfo(true); setSelectedSection('works'); }} className="cursor-pointer hover:text-white"> works</span> |
-            <span onClick={() => { setShowInfo(true); setSelectedSection('social media'); }} className="cursor-pointer hover:text-white"> sm</span> 
+            <span onClick={() => { setShowInfo(true); setSelectedSection('social media'); }} className="cursor-pointer hover:text-white"> socials</span> 
           </motion.p>
         </div>
 
-        <div className="flex font-bold justify-center text-2xl md:text-3xl lg:text-4xl cursor-pointer"
+        <div className="flex font-bold justify-center short:text-xl text-2xl md:text-3xl lg:text-4xl cursor-pointer"
           onClick={() => setIsModalOpen(true)}
         >
           <p

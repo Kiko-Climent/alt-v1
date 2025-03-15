@@ -37,17 +37,12 @@ const Statement2 = () => {
         >about</motion.p>
         <br/> */}
         <motion.p custom={1} variants={animation} initial="initial" animate={isInView ? "enter" : ""}>
-        Against Low Trends curates and develops electronic music proposals where artists
-        and promoters meet on common ground.<br/><br/>
-        We connect artists with the right spaces.
+        <span className="text-black bg-[#ed3833]">Against Low Trends</span> is an agency focused on curating and developing electronic music projects, bringing artists and promoters together on common ground.
         <br/><br/>
-        The focus is on meaningful work, not mass appeal.
+        Our goal is to provide a framework in which artists can develop their work with autonomy and intention. <span className="text-black bg-[#ed3833]">We connect artists with the right spaces,</span> prioritizing depth over mass appeal.
         <br/><br/>
-        Artists who share our vision find the space and support to develop their work freely.
-        <br/><br/>
-        More than representation, it’s about creating the right conditions for artists to grow
-        on their own terms.
-          </motion.p>
+        We collaborate with a carefully selected group of artists, offering them the space and support they need to create freely. Rather than mere representation, we focus on ensuring that every artistic connection is meaningful and purposeful.
+        </motion.p>
 
         </div>
         <motion.div variants={animationImage}
