@@ -4,10 +4,11 @@ import PageTransition2 from "@/components/Layout/Page_Transition2";
 
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/utils/firebaseConfig";
-import ArtistProfile11 from "@/components/Artist/index11";
-import ArtistProfile14 from "@/components/Artist/index14";
-import ArtistProfile15 from "@/components/Artist/index15";
-import ArtistProfile16 from "@/components/Artist/index16";
+// import ArtistProfile11 from "@/components/Artist/index11";
+// import ArtistProfile14 from "@/components/Artist/index14";
+// import ArtistProfile15 from "@/components/Artist/index15";
+// import ArtistProfile16 from "@/components/Artist/index16";
+import ArtistProfile17 from "@/components/Artist/index17";
 
 export default function Artist({ artistData }) {
   return (
@@ -19,7 +20,7 @@ export default function Artist({ artistData }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PageTransition2>
-        <ArtistProfile16 data={artistData}/>
+        <ArtistProfile17 data={artistData}/>
       </PageTransition2>
     </>
   )

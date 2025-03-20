@@ -20,10 +20,10 @@ self.__BUILD_MANIFEST = {
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/artist/[id]": [
+    "/about": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/artist/[id].js"
+      "static/chunks/pages/about.js"
     ],
     "/home": [
       "static/chunks/webpack.js",

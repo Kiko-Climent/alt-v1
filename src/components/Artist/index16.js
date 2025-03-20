@@ -4,7 +4,7 @@
 // Con enlaces, falta conectar a Firebase
 
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import BookingModal from "../Booking/BookingModal";
 import { ref, getDownloadURL } from "firebase/storage";
 import { storage } from "@/utils/firebaseConfig";
@@ -20,6 +20,25 @@ const ArtistProfile16 = ({data}) => {
   const [hovered, setHovered] = useState(false);
   const [profilePicUrl, setProfilePicUrl] = useState("");
   const [clickedSection, setClickedSection] = useState(null);
+
+  const containerRef = useRef(null);
+
+  const handleScrollToTop = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (showInfo) {
+      handleScrollToTop();
+    }
+  }, [showInfo, selectedSection]);
+
+  
 
   useEffect(() => {
     if (showInfo) setHovered(false);
@@ -101,7 +120,9 @@ const ArtistProfile16 = ({data}) => {
         </div>
 
         {/* motion div INFO */}
-        <motion.div 
+        <motion.div
+          onClick={() => setShowInfo(false)}
+          ref={containerRef}
           initial={{ opacity: 0, clipPath: "inset(0 0 100% 0)" }}
           animate={{ 
             opacity: showInfo ? 1 : 0, 
@@ -204,10 +225,10 @@ const ArtistProfile16 = ({data}) => {
       {/* artist name div */}
       <div className="flex flex-col pt-0 md:pt-2 w-full">
         <motion.div 
-          initial={{ clipPath: "inset(0 0 0 100%)", filter: "blur(10px)", opacity: 0 }}
+          initial={{ clipPath: "inset(0 0 0 100%)", filter: "blur(15px)", opacity: 0 }}
           animate={{ clipPath: "inset(0 0 0 0)", filter: "blur(0px)", opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="flex justify-center items-center gap-2 lg:gap-3"
+          className="flex justify-center items-center gap-1 lg:gap-3 whitespace-nowrap"
         >
           <p 
             translate="no"
@@ -217,10 +238,7 @@ const ArtistProfile16 = ({data}) => {
             {data.artist_name}
           </p>
           
-          <motion.p 
-            initial={{ filter: "blur(10px)", opacity: 0 }}
-            animate={{ filter: "blur(0px)", opacity: 1 }}
-            transition={{ duration: 0.95, delay: 0.6 }}
+          <p 
             className="text-4xl lg:text-5xl font-bold cursor-pointer "
             onClick={() => setShowLinks(!showLinks)}
             style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
@@ -233,7 +251,7 @@ const ArtistProfile16 = ({data}) => {
             >
               +
             </motion.span>
-          </motion.p>
+          </p>
         </motion.div>
 
         {/* Contenedor para que los textos no cambien el layout */}
@@ -242,7 +260,7 @@ const ArtistProfile16 = ({data}) => {
             initial={{ opacity: 0, rotateX: 0 }}
             animate={{ opacity: showLinks ? 0 : 1, rotateX: showLinks ? -90 : 0 }}
             transition={{ duration: 0.8 }}
-            className="absolute text-white font-bold text-sm md:text-2xl leading-4 italic text-center md:whitespace-nowrap"
+            className="absolute text-white font-bold text-sm md:text-2xl leading-4 tracking-widest md:tracking-wide italic text-center md:whitespace-nowrap"
           >
             “{data.artist_quote}"
           </motion.p>
@@ -264,7 +282,7 @@ const ArtistProfile16 = ({data}) => {
           onClick={() => setIsModalOpen(true)}
         >
           <p
-            className="font-bold group"
+            className="font-bold group hover:bg-[#ed3833] hover:text-black"
             onClick={() => setIsModalOpen(true)}
           >
             <span className="mr-2 transform transition-transform duration-300 group-hover:rotate-45 inline-block">↗</span>

@@ -101,7 +101,7 @@ const Home5 = () => {
   return (
     <section
       ref={body}
-      className="flex items-center justify-center md:justify-start min-h-screen w-screen bg-black text-white text-[7.7vh] md:text-[8.3vw] uppercase px-4 md:px-2 md:pt-8 relative"
+      className="flex items-center justify-center md:justify-start min-h-screen w-screen bg-black text-white text-[7.7vh] md:text-[min(10vw,10rem)] uppercase px-4 md:px-2 md:pt-8 relative md:whitespace-nowrap"
     >
       {/* Lista de títulos */}
       <motion.div
@@ -109,7 +109,7 @@ const Home5 = () => {
         variants={animation}
         initial="initial"
         animate={isInView ? "enter" : ""}
-        className="relative z-10 home flex flex-col text-center items-center md:items-start tracking-tight pb-4 leading-[0.75] md:leading-[0.75] gap-[0.4rem] md:gap-0"
+        className="relative z-10 home flex flex-col text-center items-center md:items-start tracking-tight pb-4 md:pb-4 pt-0 md:pt-6 leading-[0.75] md:leading-[0.75] gap-[0.4rem] md:gap-0"
       >
         {elements.map(({ id, name }, index) => (
           <motion.div

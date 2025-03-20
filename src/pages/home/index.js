@@ -4,6 +4,7 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import PageTransition2 from "@/components/Layout/Page_Transition2";
 import Home5 from "@/components/Home/index3";
+import Home7 from "@/components/Home/index6";
 
 
 export default function HomePage () {

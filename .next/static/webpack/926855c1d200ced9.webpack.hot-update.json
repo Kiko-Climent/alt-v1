@@ -1,0 +1,1 @@
+{"c":["pages/_app","webpack"],"r":["pages/artist/[id]"],"m":["./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?absolutePagePath=%2FUsers%2Fkikocliment%2Falt-v1%2Fsrc%2Fpages%2Fartist%2F%5Bid%5D.js&page=%2Fartist%2F%5Bid%5D!","./src/components/Artist/index17.js","./src/components/Booking/BookingModal.js","./src/pages/artist/[id].js"]}
