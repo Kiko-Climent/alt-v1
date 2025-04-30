@@ -1,4 +1,5 @@
 // with images from Firebase
+// disable hover
 
 import { useState, useEffect, useRef } from "react";
 import { useInView, motion } from "framer-motion";
@@ -18,6 +19,7 @@ const Home7 = () => {
   const router = useRouter();
   // HOVEREDARTIST AQUI MEJORA ELRENDIMIENTO?, ELIMINAR SI SE INTRODUCE MAS ABAJO
   const hoveredArtist = elements.find((el) => el.name === hoveredElement);
+  const [disableHover, setDisableHover] = useState(false);
 
 
   const animation = {
@@ -77,6 +79,7 @@ const Home7 = () => {
   useEffect(() => {
     if (router.pathname === "/") {
       setSelectedElement(null); // Restablecer al volver a Home
+      setDisableHover(false);
     }
   }, [router.pathname]);
   
@@ -84,13 +87,14 @@ const Home7 = () => {
   // Manejar redirección al perfil del artista
   const handleArtistClick = (id, name) => {
     setSelectedElement(name); // Guarda el artista seleccionado
+    setDisableHover(true);
     
     // Ocultar otros artistas con una pequeña animación antes de redirigir
     setTimeout(() => {
       router.push(
         {
           pathname: `/artist/${id}`,
-          query: { fromHome4: "true" }, // Pasamos este flag para detectar en la página de destino
+          query: { fromHome7: "true" }, // Pasamos este flag para detectar en la página de destino
         },
         `/artist/${id}`
       );
@@ -101,7 +105,7 @@ const Home7 = () => {
   return (
     <section
       ref={body}
-      className="flex items-center justify-center min-h-screen w-screen bg-black text-white text-[7.7vh] md:text-[8.3vw] uppercase px-4 md:px-2 md:pt-8 relative"
+      className="flex items-center justify-center md:justify-start min-h-screen w-screen bg-black text-white text-[7.7vh] md:text-[min(10vw,10rem)] uppercase px-4 md:px-2 md:pt-8 relative md:whitespace-nowrap"
     >
       {/* Lista de títulos */}
       <motion.div
@@ -109,7 +113,7 @@ const Home7 = () => {
         variants={animation}
         initial="initial"
         animate={isInView ? "enter" : ""}
-        className="relative z-10 home flex flex-col text-center items-center tracking-tight pb-4 leading-[0.75] md:leading-[0.75] gap-[0.4rem] md:gap-0"
+        className="relative z-10 home flex flex-col text-center items-center md:items-start tracking-tight pb-4 md:pb-4 pt-0 md:pt-6 leading-[0.75] md:leading-[0.75] gap-[0.4rem] md:gap-0"
       >
         {elements.map(({ id, name }, index) => (
           <motion.div
@@ -137,8 +141,8 @@ const Home7 = () => {
                     ? "#ed3833"
                     : "white",
               }}
-              onHoverStart={() => setHoveredElement(name)}
-              onHoverEnd={() => setHoveredElement(null)}
+              onHoverStart={() => !disableHover && setHoveredElement(name)} // 🔹 Solo activa hover si está permitido
+              onHoverEnd={() => !disableHover && setHoveredElement(null)} // 🔹 Solo desactiva hover si está permitido
               onClick={() => handleArtistClick(id, name)}
             >
               {name}

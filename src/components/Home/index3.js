@@ -90,7 +90,7 @@ const Home5 = () => {
       router.push(
         {
           pathname: `/artist/${id}`,
-          query: { fromHome4: "true" }, // Pasamos este flag para detectar en la página de destino
+          query: { fromHome5: "true" }, // Pasamos este flag para detectar en la página de destino
         },
         `/artist/${id}`
       );

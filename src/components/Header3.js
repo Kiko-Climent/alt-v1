@@ -27,15 +27,14 @@ const Header3 = () => {
   return(
     <div ref={body} translate="no" 
     className="flex justify-between tracking-widest px-2 short:px-2 md:px-4 py-2 bg-black/10 mix-blend-difference text-white text-xs md:text-[13px] top-0 fixed w-full z-50">
-    {/* <div className="flex justify-between tracking-widest px-4 py-2 bg-black text-white text-xs md:text-[13px] fixed w-full z-50 overflow-hidden"> */}
       <motion.div custom={1} variants={animation_header} initial="initial" animate={isInView ? "enter" : ""} 
       className="flex font-bold hover:text-black hover:bg-[#ed3833] transform transition-colors duration-200">
         <Link href="/home">Against Low Trends</Link>
       </motion.div>
       <motion.div custom={1} variants={animation_header2} initial="initial" animate={isInView ? "enter" : ""} 
       className="flex font-bold gap-1 transform transition-transform duration-300">
-        <Link href="/about" className={`${pathname === "/about" ? "text-active" : ""} hover:text-black hover:bg-[#ed3833] transform transition-colors duration-200`}>about</Link>,
-        <Link href="/contact" className={`${pathname === "/contact" ? "text-active" : ""} hover:text-black hover:bg-[#ed3833] transform transition-colors duration-200`}>contact</Link>,
+        <Link href="/about" className={`${pathname === "/about" ? "text-active" : ""} hover:text-black hover:bg-[#ed3833] transform transition-colors duration-200`}>about,</Link>
+        <Link href="/contact" className={`${pathname === "/contact" ? "text-active" : ""} hover:text-black hover:bg-[#ed3833] transform transition-colors duration-200`}>contact,</Link>
         <a href="https://www.instagram.com/againstlowtrends/" target="_blank" rel="noopener noreferrer" className="hover:text-black hover:bg-[#ed3833] transform transition-colors duration-200">ig</a>
 
       </motion.div>

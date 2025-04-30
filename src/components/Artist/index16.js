@@ -95,6 +95,7 @@ const ArtistProfile16 = ({data}) => {
         }}
         transition={{ duration: 0.75, ease: "easeInOut" }}
         onAnimationComplete={() => setAnimationComplete(true)}
+        // className="[text-shadow:_7px_7px_0px_#ed3833,_-7px_-7px_0px_#ed3833] absolute top-1/2 -translate-y-1/2 w-full text-[9.0vw] font-bold text-center z-0 tracking-tight lg:tracking-normal whitespace-nowrap"
         className="absolute top-1/2 -translate-y-1/2 w-full text-[9.0vw] font-bold text-center z-0 tracking-tight lg:tracking-normal whitespace-nowrap">
         AGAINST LOW TRENDS
       </motion.p>
@@ -216,6 +217,8 @@ const ArtistProfile16 = ({data}) => {
                 <span className={`transition-all duration-300 ease-in-out ${hovered ? 'scale-90 text-white' : 'scale-100 text-black'}`}>
                   {hovered ? "close" : "x"}
                 </span>
+                                      {/* [text-shadow:_2px_2px_0px_white,_-2px_-2px_0px_white]
+                                  lg:[text-shadow:_3px_3px_0px_white,_-3px_-3px_0px_white] */}
               </button>
             )}
           </motion.div>

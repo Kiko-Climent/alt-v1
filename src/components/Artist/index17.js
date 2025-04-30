@@ -95,7 +95,10 @@ const ArtistProfile17 = ({data}) => {
         }}
         transition={{ duration: 0.75, ease: "easeInOut" }}
         onAnimationComplete={() => setAnimationComplete(true)}
-        className="absolute top-1/2 -translate-y-1/2 w-full text-[9.0vw] font-bold text-center z-0 tracking-tight lg:tracking-normal whitespace-nowrap">
+        className="[text-shadow:_2px_2px_0px_#ed3833,_-2px_-2px_0px_#ed3833] 
+                  lg:[text-shadow:_7px_7px_0px_#ed3833,_-7px_-7px_0px_#ed3833] text-black
+                  absolute top-1/2 -translate-y-1/2 w-full text-[9.0vw] font-bold text-center z-0 tracking-tight lg:tracking-normal whitespace-nowrap"
+      >
         AGAINST LOW TRENDS
       </motion.p>
 
@@ -107,6 +110,7 @@ const ArtistProfile17 = ({data}) => {
         className="relative flex justify-center">
         <div className="w-[90%] md:w-4/5 lg:w-1/3">
           <motion.img
+          onClick={() => setShowLinks(!showLinks)}
             src={profilePicUrl}
             style={{
 

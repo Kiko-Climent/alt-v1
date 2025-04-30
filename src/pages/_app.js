@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import "@/styles/globals.css";
 import "@/components/Layout/Page_Transition2/styles.scss";
 import { AnimatePresence } from "framer";

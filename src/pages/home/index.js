@@ -3,7 +3,6 @@
 import Head from "next/head";
 import { useEffect, useState } from "react";
 import PageTransition2 from "@/components/Layout/Page_Transition2";
-import Home5 from "@/components/Home/index3";
 import Home7 from "@/components/Home/index6";
 
 
@@ -12,8 +11,8 @@ export default function HomePage () {
 
   useEffect(() => {
     if (sessionStorage.getItem("visitedFromSplash")) {
-      setShowTransition(false); // Si venimos del Splash, desactivar la transición
-      sessionStorage.removeItem("visitedFromSplash"); // Eliminar para que la próxima navegación tenga la transición
+      setShowTransition(false);
+      sessionStorage.removeItem("visitedFromSplash");
     }
   }, []);
   
@@ -28,10 +27,10 @@ export default function HomePage () {
       </Head>
     {showTransition ? (
         <PageTransition2>
-          <Home5 />
+          <Home7 />
         </PageTransition2>
       ) : (
-        <Home5 />
+        <Home7 />
       )}
     </>
   )
