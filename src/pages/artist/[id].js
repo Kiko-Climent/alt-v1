@@ -1,10 +1,10 @@
 import Head from "next/head";
-
 import PageTransition2 from "@/components/Layout/Page_Transition2";
 
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/utils/firebaseConfig";
-import ArtistProfile18 from "@/components/Artist/index18";
+// import ArtistProfile18 from "@/components/Artist/index18";
+import ArtistProfile19 from "@/components/Artist/index19";
 
 export default function Artist({ artistData }) {
   return (
@@ -16,7 +16,7 @@ export default function Artist({ artistData }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PageTransition2>
-        <ArtistProfile18 data={artistData}/>
+        <ArtistProfile19 data={artistData}/>
       </PageTransition2>
     </>
   )
@@ -37,7 +37,8 @@ export async function getServerSideProps(context) {
 
     return {
       props: {
-        artistData: docSnap.data() || null,
+        // artistData: docSnap.data() || null,
+        artistData: { ...docSnap.data(), id },
         ssrWorking: true,
       },
     };
